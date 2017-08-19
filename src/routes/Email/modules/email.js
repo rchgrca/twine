@@ -3,6 +3,8 @@
 // ------------------------------------
 export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
 export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
+export const MARK_READ = 'MARK_READ'
+export const MARK_UNREAD = 'MARK_UNREAD'
 
 // ------------------------------------
 // Actions
@@ -32,9 +34,25 @@ export const doubleAsync = () => {
   }
 }
 
+export function markRead (value = 1) {
+  return {
+    type    : MARK_READ,
+    payload : value
+  }
+}
+
+export function markUnRead (value = 1) {
+  return {
+    type    : MARK_UNREAD,
+    payload : value
+  }
+}
+
 export const actions = {
   increment,
-  doubleAsync
+  doubleAsync,
+  markRead,
+  markUnRead
 }
 
 // ------------------------------------
@@ -42,7 +60,9 @@ export const actions = {
 // ------------------------------------
 const ACTION_HANDLERS = {
   [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2
+  [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
+  [MARK_READ]    : (state, action) => state + action.payload,
+  [MARK_UNREAD]    : (state, action) => state + action.payload,
 }
 
 // ------------------------------------

@@ -14,7 +14,7 @@ export const Email = ({ counter, increment, doubleAsync }) => (
   </div>
 )
 Email.propTypes = {
-  counter: PropTypes.number.isRequired,
+  email: PropTypes.object.isRequired,
   increment: PropTypes.func.isRequired,
   doubleAsync: PropTypes.func.isRequired,
 }
