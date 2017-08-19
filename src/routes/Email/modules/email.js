@@ -1,3 +1,4 @@
+import messages from './messages'
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -61,14 +62,20 @@ export const actions = {
 const ACTION_HANDLERS = {
   [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
   [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
-  [MARK_READ]    : (state, action) => state + action.payload,
-  [MARK_UNREAD]    : (state, action) => state + action.payload,
+  [MARK_READ]    : (state, action) => {
+    console.log(MARK_READ, state, action.payload)
+    return state + action.payload
+  },
+  [MARK_UNREAD]    : (state, action) => {
+    console.log(MARK_UNREAD, state, action.payload)
+    return state + action.payload
+  }
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = 0
+const initialState = messages
 export default function counterReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
