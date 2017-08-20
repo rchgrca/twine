@@ -42,7 +42,7 @@ export function markRead (value = 1) {
   }
 }
 
-export function markUnRead (value = 1) {
+export function markUnread (value = 1) {
   return {
     type    : MARK_UNREAD,
     payload : value
@@ -53,7 +53,7 @@ export const actions = {
   increment,
   doubleAsync,
   markRead,
-  markUnRead
+  markUnread
 }
 
 // ------------------------------------

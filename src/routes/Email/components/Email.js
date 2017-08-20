@@ -10,12 +10,12 @@ const getMail = (messages, isUnread) => {
   })
 }
 
-export const Email = ({ messages, markRead, markUnRead }) => {
+export const Email = ({ messages, markRead, markUnread }) => {
   return (
-    <div style={{ margin: '0 auto' }} >
+    <div className="containerEmail">
       <h2>Twine Email</h2>
-      <MailUnread messages={getMail(messages,true)} handleClick={markUnRead} />
-      <MailRead messages={getMail(messages,false)} handleClick={markRead} />
+      <MailUnread messages={getMail(messages,true)} handleClick={markRead} />
+      <MailRead messages={getMail(messages,false)} handleClick={markUnread} />
     </div>
   )
 }
@@ -23,7 +23,7 @@ export const Email = ({ messages, markRead, markUnRead }) => {
 Email.propTypes = {
   messages: PropTypes.array.isRequired,
   markRead: PropTypes.func.isRequired,
-  markUnRead: PropTypes.func.isRequired,
+  markUnread: PropTypes.func.isRequired,
 }
 
 export default Email
