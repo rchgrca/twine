@@ -52,5 +52,57 @@ export default Object.assign({}, {
       "date": "2017-08-17T14:30Z",
       "unread": false
     },
+    {
+      "id": 4,
+      "subject": "Well hello there!",
+      "from": "x@gmail.com",
+      "to": [
+      "a@gmail.com",
+      "b@gmail.com",
+      "c.gmail.com"
+      ],
+      "body": "I promise I won't bother you again",
+      "date": "2017-08-17T14:30Z",
+      "unread": true
+    },
+    {
+      "id": 5,
+      "subject": "Your confirmation is required",
+      "from": "x@gmail.com",
+      "to": [
+      "a@gmail.com",
+      "b@gmail.com",
+      "c.gmail.com"
+      ],
+      "body": "Please come to our site",
+      "date": "2017-08-17T14:30Z",
+      "unread": false
+    },
+    {
+      "id": 6,
+      "subject": "Have you forgotten?",
+      "from": "x@gmail.com",
+      "to": [
+      "a@gmail.com",
+      "b@gmail.com",
+      "c.gmail.com"
+      ],
+      "body": "It's that time of year again...",
+      "date": "2017-08-17T14:30Z",
+      "unread": true
+    },
+    {
+      "id": 7,
+      "subject": "Your account has expired",
+      "from": "x@gmail.com",
+      "to": [
+      "a@gmail.com",
+      "b@gmail.com",
+      "c.gmail.com"
+      ],
+      "body": "Please verify",
+      "date": "2017-08-17T14:30Z",
+      "unread": false
+    },
   ]
 })

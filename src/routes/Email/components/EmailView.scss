@@ -18,9 +18,10 @@ h5 {
   .message {
     float: left;
     width: 510px;
-    margin-left: 20px;
+    margin-right: 20px;
     border: 1px solid lightgray;
     padding: 20px 10px;
+    margin-bottom: 20px;
   }
   .containerSubject {
     margin-bottom: 20px;
@@ -52,12 +53,15 @@ h5 {
       float: left;
     }
     .containerMessage {
-      width: 600px;
+      width: 740px;
       padding-left: 15px;
     }
     .containerBody {
       margin-top: 20px;
     }
+  }
+  .message:last-child {
+    border-bottom: 0;
   }
 }
 
