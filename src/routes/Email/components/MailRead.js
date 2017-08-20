@@ -4,14 +4,14 @@ import PropTypes from 'prop-types'
 const getMessages = (messages, handleClick) => {
   return messages.map((message, i) => {
     return (
-      <li className="messageRead" key={`message-read-${i}`}>
+      <li className="message clearfix" key={`message-read-${i}`}>
         <div className="cell containerBtn">
           <button className='btn btn-primary' onClick={handleClick}>Mark as Unread</button>
         </div>
         <div className="cell containerMessage">
-          <div>{message.subject}</div>
+          <div className="subject">{message.subject}</div>
           <div>{message.to}</div>
-          <div>{message.body}</div>
+          <div className="containerBody">{message.body}</div>
         </div>
         <div className="cell containerTimestamp">{message.date}</div>
       </li>
@@ -21,7 +21,7 @@ const getMessages = (messages, handleClick) => {
 
 export const MailRead = ({ messages, handleClick }) => {
   return (
-    <div style={{ margin: '0 auto' }}>
+    <div className="containerMailRead">
       <h5>READ EMAIL</h5>
       <ul>
         {getMessages(messages,handleClick)}

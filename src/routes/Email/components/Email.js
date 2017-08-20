@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MailRead from './MailRead'
 import MailUnread from './MailUnread'
+import './EmailView.scss'
 
 const getMail = (messages, isUnread) => {
   return messages.filter((message) => {

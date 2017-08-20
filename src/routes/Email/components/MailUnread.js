@@ -1,19 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+
+const getMailTo = (a) => {
+  return a.map((i) => {
+    return `${i}, `
+  })
+}
+
 const getMessages = (messages, handleClick) => {
   return messages.map((message, i) => {
     return (
-      <li className="messageRead" key={`message-unread-${i}`}>
-        <div className="cell containerBtn">
-          <div>
-            <div>{message.subject}</div>
-            <div>{message.to}</div>
+      <li className="message" key={`message-unread-${i}`}>
+        <div className="containerSubject clearfix">
+          <div className="cell">
+            <div className="subject">{message.subject}</div>
+            <div>{getMailTo(message.to)}</div>
           </div>
-          <div>{message.date}</div>
+          <div className="cell date">{message.date}</div>
         </div>
-        <div className="cell containerMessage">{message.body}</div>
-        <div className="cell containerTimestamp">
+        <div className="containerBody">{message.body}</div>
+        <div className="containerBtn">
           <button className='btn btn-primary' onClick={handleClick}>Mark as Read</button>
         </div>
       </li>
@@ -23,7 +30,7 @@ const getMessages = (messages, handleClick) => {
 
 export const MailUnread = ({ messages, handleClick }) => {
   return (
-    <div style={{ margin: '0 auto' }}>
+    <div className="containerMailUnread clearfix">
       <h5>UNREAD EMAIL</h5>
       <ul>
         {getMessages(messages,handleClick)}

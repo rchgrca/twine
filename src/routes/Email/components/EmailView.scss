@@ -1,0 +1,66 @@
+ul, li {
+  list-style-type: none;
+  text-align: left;
+}
+
+h5 {
+  text-align: left;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.containerMailUnread {
+  margin-bottom: 40px;
+  .message {
+    float: left;
+    width: 510px;
+    margin-left: 20px;
+    border: 1px solid lightgray;
+    padding: 20px 10px;
+  }
+  .containerSubject {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+    .cell {
+      float: left;
+    }
+    .date {
+      padding-left: 15px;
+    }
+  }
+  .containerBody {
+    clear: both;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+  }
+  .containerBtn {
+    padding-top: 20px;
+    text-align: center;
+  }
+}
+
+.containerMailRead {
+  .message {
+    padding: 15px 0;
+    border-bottom: 1px solid lightgray;
+    .cell {
+      float: left;
+    }
+    .containerMessage {
+      width: 600px;
+      padding-left: 15px;
+    }
+    .containerBody {
+      margin-top: 20px;
+    }
+  }
+}
+
+.subject {
+  font-weight: bold;
+}
