@@ -14,7 +14,7 @@ const getMessages = (messages, handleClick) => {
         </div>
         <div className="containerBody">{message.body}</div>
         <div className="containerBtn">
-          <button className='btn btn-primary' onClick={handleClick}>Mark as Read</button>
+          <button className='btn btn-primary' onClick={() => handleClick(message.id)}>Mark as Read</button>
         </div>
       </li>
     )
