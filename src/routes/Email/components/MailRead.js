@@ -10,7 +10,7 @@ const getMessages = (messages, handleClick) => {
         </div>
         <div className="cell containerMessage">
           <div className="subject">{message.subject}</div>
-          <div>{message.to}</div>
+          <div>{message.to.join(', ')}</div>
           <div className="containerBody">{message.body}</div>
         </div>
         <div className="cell containerTimestamp">{message.date}</div>

@@ -1,13 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-
-const getMailTo = (a) => {
-  return a.map((i) => {
-    return `${i}, `
-  })
-}
-
 const getMessages = (messages, handleClick) => {
   return messages.map((message, i) => {
     return (
@@ -15,7 +8,7 @@ const getMessages = (messages, handleClick) => {
         <div className="containerSubject clearfix">
           <div className="cell">
             <div className="subject">{message.subject}</div>
-            <div>{getMailTo(message.to)}</div>
+            <div>{message.to.join(', ')}</div>
           </div>
           <div className="cell date">{message.date}</div>
         </div>
