@@ -3,6 +3,7 @@ import CoreLayout from '../layouts/PageLayout/PageLayout'
 import Home from './Home'
 import CounterRoute from './Counter'
 import EmailRoute from './Email'
+import TwineRoute from './Twine'
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
@@ -13,7 +14,8 @@ export const createRoutes = (store) => ({
   indexRoute  : Home,
   childRoutes : [
     CounterRoute(store),
-    EmailRoute(store)
+    EmailRoute(store),
+    TwineRoute(store)
   ]
 })
 
