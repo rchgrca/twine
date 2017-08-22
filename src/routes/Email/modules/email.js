@@ -64,13 +64,13 @@ const ACTION_HANDLERS = {
   [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
   [MARK_READ]    : (state, action) => {
     const xhr = new XMLHttpRequest()
-    xhr.addEventListener("load", function(){
-      console.log("SUCCESS")
+    xhr.addEventListener('load', function(){
+      console.log('SUCCESS')
     })
-    xhr.addEventListener("error", function(){
-      console.log("FAIL")
+    xhr.addEventListener('error', function(){
+      console.log('FAIL')
     })
-    xhr.open("PUT", `/emails/mark_read/${action.payload}`)
+    xhr.open('PUT', `/emails/mark_read/${action.payload}`)
     xhr.send();
 
     const messages = state.map((message) => {
@@ -84,13 +84,13 @@ const ACTION_HANDLERS = {
   },
   [MARK_UNREAD]    : (state, action) => {
     const xhr = new XMLHttpRequest()
-    xhr.addEventListener("load", function(){
-      console.log("SUCCESS")
+    xhr.addEventListener('load', function(){
+      console.log('SUCCESS')
     })
-    xhr.addEventListener("error", function(){
-      console.log("FAIL")
+    xhr.addEventListener('error', function(){
+      console.log('FAIL')
     })
-    xhr.open("PUT", `/emails/mark_unread/${action.payload}`)
+    xhr.open('PUT', `/emails/mark_unread/${action.payload}`)
     xhr.send();
 
     const messages = state.map((message) => {
@@ -107,6 +107,17 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
+const proxy = 'https://crossorigin.me/'
+const uri = 'https://s3.us-east-2.amazonaws.com/twine-public/apis/twine-mail-put.json'
+const xhr = new XMLHttpRequest()
+xhr.addEventListener('load', function(){
+  console.log('SUCCESS', JSON.parse(this.responseText))
+})
+xhr.addEventListener('error', function(){
+  console.log('FAIL', JSON.parse(this.responseText))
+})
+xhr.open('GET', uri)
+xhr.send();
 const initialState = fakedata.messages
 export default function emailReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
