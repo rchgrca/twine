@@ -63,20 +63,44 @@ const ACTION_HANDLERS = {
   [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
   [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
   [MARK_READ]    : (state, action) => {
-    return state.map((message) => {
+    const xhr = new XMLHttpRequest()
+    xhr.addEventListener("load", function(){
+      console.log("SUCCESS")
+    })
+    xhr.addEventListener("error", function(){
+      console.log("FAIL")
+    })
+    xhr.open("PUT", `/emails/mark_read/${action.payload}`)
+    xhr.send();
+
+    const messages = state.map((message) => {
       if (message.id === action.payload) {
         message.unread = false
       }
       return message
     })
+
+    return messages
   },
   [MARK_UNREAD]    : (state, action) => {
-    return state.map((message) => {
+    const xhr = new XMLHttpRequest()
+    xhr.addEventListener("load", function(){
+      console.log("SUCCESS")
+    })
+    xhr.addEventListener("error", function(){
+      console.log("FAIL")
+    })
+    xhr.open("PUT", `/emails/mark_unread/${action.payload}`)
+    xhr.send();
+
+    const messages = state.map((message) => {
       if (message.id === action.payload) {
         message.unread = true
       }
       return message
     })
+
+    return messages
   }
 }
 
