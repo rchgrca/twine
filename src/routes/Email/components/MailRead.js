@@ -1,6 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+const setMultiLineTruncate = (text, maxlength) => {
+  //uses JS solution because pure CSS solutions are not cross-browser reliable
+  const ellipsis = text.length > maxlength ? '...' : ''
+  return `${text.substring(0,maxlength)}${ellipsis}`
+}
+
 const getMessages = (messages, handleClick) => {
   return messages.map((message, i) => {
     return (
@@ -11,7 +17,7 @@ const getMessages = (messages, handleClick) => {
         <div className='cell containerMessage'>
           <div className='subject'>{message.subject}</div>
           <div>{message.to.join(', ')}</div>
-          <div className='containerBody'>{message.body}</div>
+          <div className='containerBody'>{setMultiLineTruncate(message.body, 185)}</div>
         </div>
         <div className='cell containerTimestamp'>{message.date}</div>
       </li>
