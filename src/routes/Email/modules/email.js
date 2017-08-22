@@ -64,7 +64,7 @@ const ACTION_HANDLERS = {
   [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
   [MARK_READ]    : (state, action) => {
     return state.map((message) => {
-      if(message.id == action.payload){
+      if (message.id === action.payload) {
         message.unread = false
       }
       return message
@@ -72,7 +72,7 @@ const ACTION_HANDLERS = {
   },
   [MARK_UNREAD]    : (state, action) => {
     return state.map((message) => {
-      if(message.id == action.payload){
+      if (message.id === action.payload) {
         message.unread = true
       }
       return message
