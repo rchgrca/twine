@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const setMultiLineTruncate = (text, maxlength) => {
-  //uses JS solution because pure CSS solutions are not cross-browser reliable
+  // uses JS solution because pure CSS solutions are not cross-browser reliable
   const ellipsis = text.length > maxlength ? '...' : ''
-  return `${text.substring(0,maxlength)}${ellipsis}`
+  return `${text.substring(0, maxlength)}${ellipsis}`
 }
 
 const getMessages = (messages, handleClick) => {
