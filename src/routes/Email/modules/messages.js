@@ -1,5 +1,5 @@
 export default Object.assign({}, {
-  'messages': [
+  'emails': [
     {
       'id': 0,
       'subject': 'Tahoe Trip Next Weekend',

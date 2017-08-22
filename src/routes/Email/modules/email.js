@@ -1,3 +1,4 @@
+import axios from 'axios'
 import fakedata from './messages'
 // ------------------------------------
 // Constants
@@ -61,8 +62,8 @@ export const actions = {
 // ------------------------------------
 // const proxy = 'https://crossorigin.me'
 const host = 'https://s3.us-east-2.amazonaws.com'
-const uriPut = 'emails'
-const uriGet = 'twine-public/apis/twine-mail-put.json'
+const uriPut = 'twine-public/apis/twine-mail-put.json'
+const uriGet = 'twine-public/apis/twine-mail-get.json'
 
 const ACTION_HANDLERS = {
   [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
@@ -121,7 +122,7 @@ xhr.addEventListener('error', function () {
 })
 xhr.open('GET', `${host}/${uriGet}`)
 xhr.send()
-const initialState = fakedata.messages
+const initialState = fakedata.emails
 export default function emailReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
