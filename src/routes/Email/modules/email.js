@@ -71,7 +71,6 @@ const ACTION_HANDLERS = {
     })
   },
   [MARK_UNREAD]    : (state, action) => {
-    console.log(MARK_UNREAD, state, action.payload)
     return state.map((message) => {
       if(message.id == action.payload){
         message.unread = true
