@@ -60,7 +60,7 @@ export const actions = {
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
-// const proxy = 'https://crossorigin.me'
+const proxy = 'http://cors-proxy.htmldriven.com/?url='
 const host = 'https://s3.us-east-2.amazonaws.com'
 const uriPut = 'twine-public/apis/twine-mail-put.json'
 const uriGet = 'twine-public/apis/twine-mail-get.json'
@@ -71,12 +71,12 @@ const ACTION_HANDLERS = {
   [MARK_READ]    : (state, action) => {
     const xhr = new XMLHttpRequest()
     xhr.addEventListener('load', function () {
-      console.log('SUCCESS')
+      console.log('SUCCESS', JSON.parse(JSON.parse(this.responseText).body))
     })
     xhr.addEventListener('error', function () {
       console.log('FAIL')
     })
-    xhr.open('PUT', `${host}/${uriPut}/${action.payload}?mark=read`)
+    xhr.open('PUT', `${proxy}${host}/${uriPut}`)
     xhr.send()
 
     const messages = state.map((message) => {
@@ -96,7 +96,7 @@ const ACTION_HANDLERS = {
     xhr.addEventListener('error', function () {
       console.log('FAIL')
     })
-    xhr.open('PUT', `${host}/${uriPut}/${action.payload}?mark=unread`)
+    xhr.open('PUT', `${proxy}${host}/${uriPut}`)
     xhr.send()
 
     const messages = state.map((message) => {
@@ -115,13 +115,15 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 const xhr = new XMLHttpRequest()
 xhr.addEventListener('load', function () {
-  console.log('SUCCESS', JSON.parse(this.responseText))
+  console.log('SUCCESS', JSON.parse(JSON.parse(this.responseText).body))
 })
 xhr.addEventListener('error', function () {
-  console.log('FAIL', JSON.parse(this.responseText))
+  console.log('FAIL', JSON.parse(JSON.parse(this.responseText).body))
 })
-xhr.open('GET', `${host}/${uriGet}`)
+xhr.open('GET', `${proxy}${host}/${uriGet}`)
 xhr.send()
+
+
 const initialState = fakedata.emails
 export default function emailReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
