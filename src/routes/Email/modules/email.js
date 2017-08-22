@@ -1,4 +1,4 @@
-import messages from './messages'
+import fakedata from './messages'
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -63,20 +63,29 @@ const ACTION_HANDLERS = {
   [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
   [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
   [MARK_READ]    : (state, action) => {
-    console.log(MARK_READ, state, action.payload)
-    return state + action.payload
+    return state.map((message) => {
+      if(message.id == action.payload){
+        message.unread = false
+      }
+      return message
+    })
   },
   [MARK_UNREAD]    : (state, action) => {
     console.log(MARK_UNREAD, state, action.payload)
-    return state + action.payload
+    return state.map((message) => {
+      if(message.id == action.payload){
+        message.unread = true
+      }
+      return message
+    })
   }
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const initialState = messages
-export default function counterReducer (state = initialState, action) {
+const initialState = fakedata.messages
+export default function emailReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state

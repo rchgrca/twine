@@ -13,7 +13,7 @@ export default (store) => ({
       const reducer = require('./modules/email').default
 
       /*  Add the reducer to the store on key 'counter'  */
-      injectReducer(store, { key: 'email', reducer })
+      injectReducer(store, { key: 'messages', reducer })
 
       /*  Return getComponent   */
       cb(null, Email)
