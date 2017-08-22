@@ -59,25 +59,24 @@ export const actions = {
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
-const proxy = 'https://crossorigin.me'
+// const proxy = 'https://crossorigin.me'
 const host = 'https://s3.us-east-2.amazonaws.com'
 const uriPut = 'emails'
 const uriGet = 'twine-public/apis/twine-mail-put.json'
-
 
 const ACTION_HANDLERS = {
   [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
   [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
   [MARK_READ]    : (state, action) => {
     const xhr = new XMLHttpRequest()
-    xhr.addEventListener('load', function(){
+    xhr.addEventListener('load', function () {
       console.log('SUCCESS')
     })
-    xhr.addEventListener('error', function(){
+    xhr.addEventListener('error', function () {
       console.log('FAIL')
     })
     xhr.open('PUT', `${host}/${uriPut}/${action.payload}?mark=read`)
-    xhr.send();
+    xhr.send()
 
     const messages = state.map((message) => {
       if (message.id === action.payload) {
@@ -90,14 +89,14 @@ const ACTION_HANDLERS = {
   },
   [MARK_UNREAD]    : (state, action) => {
     const xhr = new XMLHttpRequest()
-    xhr.addEventListener('load', function(){
+    xhr.addEventListener('load', function () {
       console.log('SUCCESS')
     })
-    xhr.addEventListener('error', function(){
+    xhr.addEventListener('error', function () {
       console.log('FAIL')
     })
     xhr.open('PUT', `${host}/${uriPut}/${action.payload}?mark=unread`)
-    xhr.send();
+    xhr.send()
 
     const messages = state.map((message) => {
       if (message.id === action.payload) {
@@ -114,14 +113,14 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 const xhr = new XMLHttpRequest()
-xhr.addEventListener('load', function(){
+xhr.addEventListener('load', function () {
   console.log('SUCCESS', JSON.parse(this.responseText))
 })
-xhr.addEventListener('error', function(){
+xhr.addEventListener('error', function () {
   console.log('FAIL', JSON.parse(this.responseText))
 })
 xhr.open('GET', `${host}/${uriGet}`)
-xhr.send();
+xhr.send()
 const initialState = fakedata.messages
 export default function emailReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
