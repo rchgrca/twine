@@ -6,46 +6,46 @@ import MailUnread from './MailUnread'
 import './EmailView.scss'
 
 const keysrt = (key) => {
-  return function(a,b){
-    if (a[key] > b[key]) return 1;
-    if (a[key] < b[key]) return -1;
-    return 0;
+  return function (a, b) {
+    if (a[key] > b[key]) return 1
+    if (a[key] < b[key]) return -1
+    return 0
   }
 }
 
 const convertDateToMs = (messages) => {
   return messages.map((message) => {
-    return {
-      ...message,
-      ...message['date'] = parseInt(moment(message.date).format('x'), 10)
-     }
+    message['date'] = parseInt(moment(message.date).format('x'), 10)
+    return message
   })
 }
 
 const convertDateToFormat = (messages) => {
   return messages.map((message) => {
-    const isMessageToday = moment().format('MMM D') == moment(message.date).format('MMM D')
+    const isMessageToday = moment().format('MMM D') === moment(message.date).format('MMM D')
     const sFormat = isMessageToday ? 'h mm A' : 'MMM D'
-    return {
-      ...message,
-      ...message['date'] = moment(message.date).format(sFormat)
-     }
+    message['date'] = moment(message.date).format(sFormat)
+    return message
   })
 }
 
 const getMail = (messages, isUnread) => {
   return messages.filter((message) => {
-    return message.unread == isUnread
+    return message.unread === isUnread
   })
 }
 
 export const Email = ({ messages, markRead, markUnread }) => {
   convertDateToMs(messages)
   return (
-    <div className="containerEmail">
+    <div className='containerEmail'>
       <h2>Twine Email</h2>
-      <MailUnread messages={convertDateToFormat(getMail(messages,true).sort(keysrt('date')).reverse())} handleClick={markRead} />
-      <MailRead messages={convertDateToFormat(getMail(messages,false).sort(keysrt('date')).reverse())} handleClick={markUnread} />
+      <MailUnread
+        messages={convertDateToFormat(getMail(messages, true).sort(keysrt('date')).reverse())}
+        handleClick={markRead} />
+      <MailRead
+        messages={convertDateToFormat(getMail(messages, false).sort(keysrt('date')).reverse())}
+        handleClick={markUnread} />
     </div>
   )
 }
