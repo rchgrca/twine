@@ -22,8 +22,8 @@ const convertDateToMs = (messages) => {
 
 const convertDateToFormat = (messages) => {
   return messages.map((message) => {
-    const isMessageToday = moment().format('MMM D') === moment(message.date).format('MMM D')
-    const sFormat = isMessageToday ? 'h mm A' : 'MMM D'
+    const isMessageToday = moment().format('MMM D, YYYY') === moment(message.date).format('MMM D, YYYY')
+    const sFormat = isMessageToday ? 'h mm A' : 'MMM D, YYYY'
     message['date'] = moment(message.date).format(sFormat)
     return message
   })
