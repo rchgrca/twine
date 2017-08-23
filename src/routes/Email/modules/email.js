@@ -44,34 +44,37 @@ export const doubleAsync = () => {
   }
 }
 
-export function loadEmailsSuccess(emails) {
-  return {type: LOAD_EMAILS_SUCCESS, emails};
+export function loadEmailsSuccess (emails) {
+  return {
+    type: LOAD_EMAILS_SUCCESS,
+    emails
+  }
 }
 
 export function markRead (value = 1) {
-  return function(dispatch, getState) {
-    return axios.get(getApiUrl('put'),{})
-      .then(function(response){
-          dispatch({
-            type    : MARK_READ,
-            payload : value
-          })
-      }).catch(function(){
-          console.log(`ERROR: ${MARK_READ}`)
+  return function (dispatch, getState) {
+    return axios.get(getApiUrl('put'), {})
+      .then (function (response) {
+        dispatch({
+          type    : MARK_READ,
+          payload : value
+        })
+      }).catch (function () {
+        console.log(`ERROR: ${MARK_READ}`)
       })
   }
 }
 
 export function markUnread (value = 1) {
-  return function(dispatch, getState) {
-    return axios.get(getApiUrl('put'),{})
-      .then(function(response){
-          dispatch({
-            type    : MARK_UNREAD,
-            payload : value
-          })
-      }).catch(function(){
-          console.log(`ERROR: ${MARK_READ}`)
+  return function (dispatch, getState) {
+    return axios.get(getApiUrl('put'), {})
+      .then (function (response) {
+        dispatch({
+          type    : MARK_UNREAD,
+          payload : value
+        })
+      }).catch (function () {
+        console.log(`ERROR: ${MARK_UNREAD}`)
       })
   }
 }
@@ -83,13 +86,13 @@ export const actions = {
   markUnread
 }
 
-export function loadEmails() {
-  return function(dispatch) {
-    return axios.get(getApiUrl('get'),{})
-      .then(function(response){
-          dispatch(loadEmailsSuccess(JSON.parse(response.data.body).emails))
-      }).catch(function(){
-          console.log('Error: Please refresh')
+export function loadEmails () {
+  return function (dispatch) {
+    return axios.get(getApiUrl('get'), {})
+      .then (function (response) {
+        dispatch(loadEmailsSuccess(JSON.parse(response.data.body).emails))
+      }).catch (function () {
+        console.log('Error: Please refresh')
       })
   }
 }
@@ -123,7 +126,7 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 
-const initialState = []
+const initialState = [] || fakedata.emails
 export default function emailReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
