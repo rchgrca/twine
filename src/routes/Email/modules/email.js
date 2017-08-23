@@ -48,17 +48,38 @@ export function loadEmailsSuccess(emails) {
   return {type: LOAD_EMAILS_SUCCESS, emails};
 }
 
+// export function markRead (value = 1) {
+//   return {
+//     type    : MARK_READ,
+//     payload : value
+//   }
+// }
+
 export function markRead (value = 1) {
-  return {
-    type    : MARK_READ,
-    payload : value
+  return function(dispatch, getState) {
+    return axios.get(getApiUrl('put'),{})
+      .then(function(response){
+          dispatch({
+            type    : MARK_READ,
+            payload : value
+          })
+      }).catch(function(){
+          console.log(`ERROR: ${MARK_READ}`)
+      })
   }
 }
 
 export function markUnread (value = 1) {
-  return {
-    type    : MARK_UNREAD,
-    payload : value
+  return function(dispatch, getState) {
+    return axios.get(getApiUrl('put'),{})
+      .then(function(response){
+          dispatch({
+            type    : MARK_UNREAD,
+            payload : value
+          })
+      }).catch(function(){
+          console.log(`ERROR: ${MARK_READ}`)
+      })
   }
 }
 
