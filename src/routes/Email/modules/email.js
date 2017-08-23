@@ -71,7 +71,7 @@ export const actions = {
 }
 
 export function loadEmails() {
-  return function(dispatch, getState) {
+  return function(dispatch) {
     return axios.get(getApiUrl('get'),{})
       .then(function(response){
           dispatch(loadEmailsSuccess(JSON.parse(response.data.body).emails))
