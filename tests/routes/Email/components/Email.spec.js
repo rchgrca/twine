@@ -1,7 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { Email } from 'routes/Email/components/Email'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
 describe('(Component) Email', () => {
   let _props, _spies, _wrapper
@@ -25,15 +25,15 @@ describe('(Component) Email', () => {
         },
         {
           'id': 1,
-          'subject': 'You may have just won...',
-          'from': 'x@gmail.com',
+          'subject': 'Did you forget?',
+          'from': 'me@yahoo.com',
           'to': [
-            'a@gmail.com',
-            'b@gmail.com',
-            'c.gmail.com'
+            'j@gmail.com',
+            'k@gmail.com',
+            'l.gmail.com'
           ],
-          'body': 'You may have just won the Illinois State Lottery!',
-          'date': '2017-08-19T04:30Z',
+          'body': 'You have forgotten!',
+          'date': '2017-08-18T10:30Z',
           'unread': false
         }],
       ...bindActionCreators({
@@ -41,74 +41,74 @@ describe('(Component) Email', () => {
         markUnread  : (_spies.markUnread = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
-    _wrapper = shallow(<Email {..._props} />)
-  })
-
-  it('renders as a <div>.', () => {
-    expect(_wrapper.is('div')).to.equal(true)
+    _wrapper = mount(<Email {..._props} />)
   })
 
   it('renders with an <h2> that includes Email label.', () => {
     expect(_wrapper.find('h2').text()).to.match(/Twine Email/)
   })
 
-  xit('renders subheaders <h5>.', () => {
+  it('renders an email unread email message', () => {
+    expect(_wrapper.find(".containerMailUnread").find(".message")).to.have.length(1)
+  })
+
+  it('renders subheaders <h5>.', () => {
     expect(_wrapper.find('h5').at(0).text()).to.match(/UNREAD EMAIL$/)
-    _wrapper.setProps({ counter: 8 })
+    //_wrapper.setProps({ counter: 8 })
     expect(_wrapper.find('h5').at(1).text()).to.match(/READ EMAIL$/)
   })
 
-  xit('renders exactly two buttons.', () => {
+  it('places emails depending on their read status', () => {
+    expect(_wrapper.find(".containerMailRead").find(".message")).to.have.length(1)
+    expect(_wrapper.find(".containerMailUnread").find(".message")).to.have.length(1)
+  })
+
+  it('renders exactly two buttons.', () => {
     expect(_wrapper.find('button')).to.have.length(2)
   })
 
-  xdescribe('Mark as Read', () => {
+  describe('Mark as Read', () => {
     let _button
 
     beforeEach(() => {
-      _button = _wrapper.find('button')
+      _button = _wrapper.find('button').at(0)
     })
 
-    it('exists', () => {
+    it('exists with the name Mark as Read', () => {
       expect(_button).to.exist()
+      expect(_button.text()).to.match(/Mark as Read$/)
     })
 
-    it('is a primary button', () => {
-      expect(_button.hasClass('btn btn-primary')).to.be.true()
-    })
-
-    it('Calls props.increment when clicked', () => {
+    it('Calls pops.markRead when clicked and updates the store', () => {
       _spies.dispatch.should.have.not.been.called()
 
-      _button.simulate('click')
+      _button.at(0).simulate('click')
 
       _spies.dispatch.should.have.been.called()
       _spies.markRead.should.have.been.called()
+
+
+
     })
   })
 
-  xdescribe('Double Async Button', () => {
+  describe('Mark as Unread', () => {
     let _button
 
     beforeEach(() => {
-      _button = _wrapper.find('button').filterWhere(a => a.text() === 'Double (Async)')
+      _button = _wrapper.find('button').at(1)
     })
 
     it('exists', () => {
       expect(_button).to.exist()
+      expect(_button.text()).to.match(/Mark as Unread$/)
     })
 
-    it('is a secondary button', () => {
-      expect(_button.hasClass('btn btn-secondary')).to.be.true()
-    })
-
-    it('Calls props.doubleAsync when clicked', () => {
+    it('Calls pops.markUread when clicked and updates the store', () => {
       _spies.dispatch.should.have.not.been.called()
-
       _button.simulate('click')
-
       _spies.dispatch.should.have.been.called()
-      _spies.doubleAsync.should.have.been.called()
+      _spies.markUnread.should.have.been.called()
     })
   })
 })
