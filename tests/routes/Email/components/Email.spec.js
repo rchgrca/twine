@@ -87,7 +87,38 @@ describe('(Component) Email', () => {
       _spies.dispatch.should.have.been.called()
       _spies.markRead.should.have.been.called()
 
+      _wrapper.setProps({
+        messages : [
+          {
+            'id': 0,
+            'subject': 'Tahoe Trip Next Weekend',
+            'from': 'x@gmail.com',
+            'to': [
+              'a@gmail.com',
+              'b@gmail.com',
+              'c.gmail.com'
+            ],
+            'body': 'Mi augue mattis vitae erat risus nibh.',
+            'date': '2017-08-19T14:30Z',
+            'unread': false
+          },
+          {
+            'id': 1,
+            'subject': 'Did you forget?',
+            'from': 'me@yahoo.com',
+            'to': [
+              'j@gmail.com',
+              'k@gmail.com',
+              'l.gmail.com'
+            ],
+            'body': 'You have forgotten!',
+            'date': '2017-08-18T10:30Z',
+            'unread': false
+          }]
+      })
 
+      expect(_wrapper.find(".containerMailRead").find(".message")).to.have.length(2)
+      expect(_wrapper.find(".containerMailUnread").find(".message")).to.have.length(0)
 
     })
   })
@@ -106,9 +137,44 @@ describe('(Component) Email', () => {
 
     it('Calls pops.markUread when clicked and updates the store', () => {
       _spies.dispatch.should.have.not.been.called()
+
       _button.simulate('click')
+
       _spies.dispatch.should.have.been.called()
       _spies.markUnread.should.have.been.called()
+
+      _wrapper.setProps({
+        messages : [
+          {
+            'id': 0,
+            'subject': 'Tahoe Trip Next Weekend',
+            'from': 'x@gmail.com',
+            'to': [
+              'a@gmail.com',
+              'b@gmail.com',
+              'c.gmail.com'
+            ],
+            'body': 'Mi augue mattis vitae erat risus nibh.',
+            'date': '2017-08-19T14:30Z',
+            'unread': true
+          },
+          {
+            'id': 1,
+            'subject': 'Did you forget?',
+            'from': 'me@yahoo.com',
+            'to': [
+              'j@gmail.com',
+              'k@gmail.com',
+              'l.gmail.com'
+            ],
+            'body': 'You have forgotten!',
+            'date': '2017-08-18T10:30Z',
+            'unread': true
+          }]
+      })
+
+      expect(_wrapper.find(".containerMailRead").find(".message")).to.have.length(0)
+      expect(_wrapper.find(".containerMailUnread").find(".message")).to.have.length(2)
     })
   })
 })
