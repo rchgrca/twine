@@ -84,11 +84,6 @@ export function loadEmails() {
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
-const proxy = 'http://cors-proxy.htmldriven.com/?url='
-const host = 'https://s3.us-east-2.amazonaws.com'
-const uriPut = 'twine-public/apis/twine-mail-put.json'
-const uriGet = 'twine-public/apis/twine-mail-get.json'
-
 const ACTION_HANDLERS = {
   [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
   [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
