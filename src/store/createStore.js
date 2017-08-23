@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import { browserHistory } from 'react-router'
 import makeRootReducer from './reducers'
 import { updateLocation } from './location'
+import { loadEmails } from '../routes/Email/modules/email'
 
 const createStore = (initialState = {}) => {
   // ======================================================
@@ -33,6 +34,9 @@ const createStore = (initialState = {}) => {
       ...enhancers
     )
   )
+
+  store.dispatch(loadEmails())
+
   store.asyncReducers = {}
 
   // To unsubscribe, invoke `store.unsubscribeHistory()` anytime

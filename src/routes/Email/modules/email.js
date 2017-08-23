@@ -7,6 +7,15 @@ export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
 export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
 export const MARK_READ = 'MARK_READ'
 export const MARK_UNREAD = 'MARK_UNREAD'
+export const LOAD_EMAILS = 'LOAD_EMAILS'
+export const LOAD_EMAILS_SUCCESS = 'LOAD_EMAILS_SUCCESS'
+
+const getApiUrl = (method) => {
+  const proxy = 'http://cors-proxy.htmldriven.com/?url='
+  const host = 'https://s3.us-east-2.amazonaws.com'
+  const path = `twine-public/apis/twine-mail-${method}.json`
+  return `${proxy}${host}/${path}`
+}
 
 // ------------------------------------
 // Actions
@@ -36,6 +45,10 @@ export const doubleAsync = () => {
   }
 }
 
+export function loadEmailsSuccess(emails) {
+  return {type: LOAD_EMAILS_SUCCESS, emails};
+}
+
 export function markRead (value = 1) {
   return {
     type    : MARK_READ,
@@ -57,6 +70,17 @@ export const actions = {
   markUnread
 }
 
+export function loadEmails() {
+  return function(dispatch, getState) {
+    return axios.get(getApiUrl('get'),{})
+      .then(function(response){
+          dispatch(loadEmailsSuccess(JSON.parse(response.data.body).emails))
+      }).catch(function(){
+          console.log('Error: Please refresh')
+      })
+  }
+}
+
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
@@ -68,6 +92,7 @@ const uriGet = 'twine-public/apis/twine-mail-get.json'
 const ACTION_HANDLERS = {
   [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
   [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
+  [LOAD_EMAILS_SUCCESS]  : (state, action) => action.emails,
   [MARK_READ]    : (state, action) => {
     const xhr = new XMLHttpRequest()
     xhr.addEventListener('load', function () {
@@ -113,18 +138,8 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-const xhr = new XMLHttpRequest()
-xhr.addEventListener('load', function () {
-  console.log('SUCCESS', JSON.parse(JSON.parse(this.responseText).body))
-})
-xhr.addEventListener('error', function () {
-  console.log('FAIL', JSON.parse(JSON.parse(this.responseText).body))
-})
-xhr.open('GET', `${proxy}${host}/${uriGet}`)
-xhr.send()
 
-
-const initialState = fakedata.emails
+const initialState = []
 export default function emailReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
