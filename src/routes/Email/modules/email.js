@@ -7,7 +7,6 @@ export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
 export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
 export const MARK_READ = 'MARK_READ'
 export const MARK_UNREAD = 'MARK_UNREAD'
-export const LOAD_EMAILS = 'LOAD_EMAILS'
 export const LOAD_EMAILS_SUCCESS = 'LOAD_EMAILS_SUCCESS'
 
 const getApiUrl = (method) => {
