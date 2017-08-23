@@ -48,13 +48,6 @@ export function loadEmailsSuccess(emails) {
   return {type: LOAD_EMAILS_SUCCESS, emails};
 }
 
-// export function markRead (value = 1) {
-//   return {
-//     type    : MARK_READ,
-//     payload : value
-//   }
-// }
-
 export function markRead (value = 1) {
   return function(dispatch, getState) {
     return axios.get(getApiUrl('put'),{})
@@ -108,23 +101,21 @@ const ACTION_HANDLERS = {
   [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
   [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
   [LOAD_EMAILS_SUCCESS]  : (state, action) => action.emails,
-  [MARK_READ]    : (state, action) => {
-    const messages = state.map((message) => {
+  [MARK_READ]            : (state, action) => {
+    return state.map((message) => {
       if (message.id === action.payload) {
         message.unread = false
       }
       return message
     })
-    return messages
   },
-  [MARK_UNREAD]    : (state, action) => {
-    const messages = state.map((message) => {
+  [MARK_UNREAD]          : (state, action) => {
+    return state.map((message) => {
       if (message.id === action.payload) {
         message.unread = true
       }
       return message
     })
-    return messages
   }
 }
 
