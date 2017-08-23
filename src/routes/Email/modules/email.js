@@ -3,8 +3,6 @@ import fakedata from './messages'
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const COUNTER_INCREMENT = 'COUNTER_INCREMENT'
-export const COUNTER_DOUBLE_ASYNC = 'COUNTER_DOUBLE_ASYNC'
 export const MARK_READ = 'MARK_READ'
 export const MARK_UNREAD = 'MARK_UNREAD'
 export const LOAD_EMAILS_SUCCESS = 'LOAD_EMAILS_SUCCESS'
@@ -19,31 +17,6 @@ const getApiUrl = (method) => {
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function increment (value = 1) {
-  return {
-    type    : COUNTER_INCREMENT,
-    payload : value
-  }
-}
-
-/*  This is a thunk, meaning it is a function that immediately
-    returns a function for lazy evaluation. It is incredibly useful for
-    creating async actions, especially when combined with redux-thunk! */
-
-export const doubleAsync = () => {
-  return (dispatch, getState) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        dispatch({
-          type    : COUNTER_DOUBLE_ASYNC,
-          payload : getState().counter
-        })
-        resolve()
-      }, 200)
-    })
-  }
-}
-
 export function loadEmailsSuccess (emails) {
   return {
     type: LOAD_EMAILS_SUCCESS,
@@ -80,8 +53,6 @@ export function markUnread (value = 1) {
 }
 
 export const actions = {
-  increment,
-  doubleAsync,
   markRead,
   markUnread
 }
@@ -101,8 +72,6 @@ export function loadEmails () {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [COUNTER_INCREMENT]    : (state, action) => state + action.payload,
-  [COUNTER_DOUBLE_ASYNC] : (state, action) => state * 2,
   [LOAD_EMAILS_SUCCESS]  : (state, action) => action.emails,
   [MARK_READ]            : (state, action) => {
     return state.map((message) => {

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { increment, doubleAsync, markRead, markUnread } from '../modules/email'
+import { markRead, markUnread } from '../modules/email'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -13,8 +13,6 @@ import Email from '../components/Email'
     implementing our wrapper around increment; the component doesn't care   */
 
 const mapDispatchToProps = {
-  increment : () => increment(1),
-  doubleAsync,
   markRead,
   markUnread
 }
