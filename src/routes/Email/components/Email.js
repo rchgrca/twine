@@ -6,7 +6,7 @@ import MailUnread from './MailUnread'
 import './EmailView.scss'
 
 const keysrt = (key) => {
-  return function (a, b) {
+  return (a, b) => {
     if (a[key] > b[key]) return 1
     if (a[key] < b[key]) return -1
     return 0
