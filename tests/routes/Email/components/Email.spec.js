@@ -1,7 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux'
 import { Email } from 'routes/Email/components/Email'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
 
 describe('(Component) Email', () => {
   let _props, _spies, _wrapper
@@ -45,18 +45,17 @@ describe('(Component) Email', () => {
   })
 
   it('renders an email unread email message', () => {
-    expect(_wrapper.find(".containerMailUnread").find(".message")).to.have.length(1)
+    expect(_wrapper.find('.containerMailUnread').find('.message')).to.have.length(1)
   })
 
   it('renders subheaders <h5>.', () => {
     expect(_wrapper.find('h5').at(0).text()).to.match(/UNREAD EMAIL$/)
-    //_wrapper.setProps({ counter: 8 })
     expect(_wrapper.find('h5').at(1).text()).to.match(/READ EMAIL$/)
   })
 
   it('places emails depending on their read status', () => {
-    expect(_wrapper.find(".containerMailRead").find(".message")).to.have.length(1)
-    expect(_wrapper.find(".containerMailUnread").find(".message")).to.have.length(1)
+    expect(_wrapper.find('.containerMailRead').find('.message')).to.have.length(1)
+    expect(_wrapper.find('.containerMailUnread').find('.message')).to.have.length(1)
   })
 
   it('renders exactly two buttons.', () => {
@@ -113,9 +112,8 @@ describe('(Component) Email', () => {
           }]
       })
 
-      expect(_wrapper.find(".containerMailRead").find(".message")).to.have.length(2)
-      expect(_wrapper.find(".containerMailUnread").find(".message").text()).to.match(/There are no Unread messages$/)
-
+      expect(_wrapper.find('.containerMailRead').find('.message')).to.have.length(2)
+      expect(_wrapper.find('.containerMailUnread').find('.message').text()).to.match(/There are no Unread messages$/)
     })
   })
 
@@ -169,8 +167,8 @@ describe('(Component) Email', () => {
           }]
       })
 
-      expect(_wrapper.find(".containerMailRead").find(".message").text()).to.match(/There are no Read messages$/)
-      expect(_wrapper.find(".containerMailUnread").find(".message")).to.have.length(2)
+      expect(_wrapper.find('.containerMailRead').find('.message').text()).to.match(/There are no Read messages$/)
+      expect(_wrapper.find('.containerMailUnread').find('.message')).to.have.length(2)
     })
   })
 })
