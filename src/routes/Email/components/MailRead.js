@@ -8,7 +8,7 @@ const setMultiLineTruncate = (text, maxlength) => {
 }
 
 const getMessages = (messages, handleClick) => {
-  if(messages.length > 0){
+  if (messages.length > 0) {
     return messages.map((message, i) => {
       return (
         <li className='message clearfix' key={`message-read-${i}`}>
@@ -29,7 +29,6 @@ const getMessages = (messages, handleClick) => {
       <li className='message clearfix center'>There are no Read messages</li>
     )
   }
-
 }
 
 export const MailRead = ({ messages, handleClick }) => {

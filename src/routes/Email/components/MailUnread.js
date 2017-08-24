@@ -8,7 +8,7 @@ const setMultiLineTruncate = (text, maxlength) => {
 }
 
 const getMessages = (messages, handleClick) => {
-  if(messages.length > 0){
+  if (messages.length > 0) {
     return messages.map((message, i) => {
       return (
         <li className='message' key={`message-unread-${i}`}>
