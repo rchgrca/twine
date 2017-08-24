@@ -16,14 +16,21 @@ const getApiUrl = (method) => {
 }
 
 const removeEmailsDatesInvalid = (emails) => {
-  return emails.filter((email) => {
-    return moment(email.date).isValid()
+  return emails.map((email) => {
+    if(!moment(email.date).isValid()){
+      console.log(`ERROR: Malformed Data: Invalid Timestamp: Date = null: id:${email.id}`)
+    }
+    return email
   })
 }
 
 const removeEmailsAddressesInvalid = (emails) => {
   return emails.map((email) => {
     email.to = email.to.filter((address) => {
+      if(!address.includes('@')){
+        console.log(`ERROR: Malformed Data: Email Address: Missing '@':
+        id:${email.id}, address:${address}`)
+      }
       return address.includes('@')
     })
     return email
