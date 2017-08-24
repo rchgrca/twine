@@ -50,12 +50,12 @@ export function loadEmailsSuccess (emails) {
 export function markRead (value = 1) {
   return function (dispatch, getState) {
     return axios.get(getApiUrl('put'), {})
-      .then (function (response) {
+      .then(function (response) {
         dispatch({
           type    : MARK_READ,
           payload : value
         })
-      }).catch (function () {
+      }).catch(function () {
         console.log(`ERROR: ${MARK_READ}`)
       })
   }
@@ -64,12 +64,12 @@ export function markRead (value = 1) {
 export function markUnread (value = 1) {
   return function (dispatch, getState) {
     return axios.get(getApiUrl('put'), {})
-      .then (function (response) {
+      .then(function (response) {
         dispatch({
           type    : MARK_UNREAD,
           payload : value
         })
-      }).catch (function () {
+      }).catch(function () {
         console.log(`ERROR: ${MARK_UNREAD}`)
       })
   }
@@ -78,9 +78,9 @@ export function markUnread (value = 1) {
 export function loadEmails () {
   return function (dispatch) {
     return axios.get(getApiUrl('get'), {})
-      .then (function (response) {
+      .then(function (response) {
         dispatch(loadEmailsSuccess(JSON.parse(response.data.body).emails))
-      }).catch (function () {
+      }).catch(function () {
         console.log(`ERROR: ${LOAD_EMAILS_SUCCESS}`)
       })
   }
