@@ -67,7 +67,7 @@ button {
 
 .containerMailRead {
   ul {
-    padding: 1rem 2.5rem;
+    padding: 0 2.5rem 1rem;
     .message {
       padding: 1rem 0;
       border-bottom: 1px solid lightgray;
@@ -80,6 +80,7 @@ button {
           width: 5rem;
           white-space: normal;
           text-align: left;
+          margin-top: 1rem;
         }
       }
       .containerMessage {
