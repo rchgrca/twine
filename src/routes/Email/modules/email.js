@@ -15,9 +15,18 @@ const getApiUrl = (method) => {
   return `${proxy}${host}/${path}`
 }
 
-const removeBadEmails = (emails) => {
+const removeEmailsDatesInvalid = (emails) => {
   return emails.filter((email) => {
     return moment(email.date).isValid()
+  })
+}
+
+const removeEmailsAddressesInvalid = (emails) => {
+  return emails.map((email) => {
+    email.to = email.to.filter((address) => {
+      return address.includes('@')
+    })
+    return email
   })
 }
 
@@ -65,7 +74,7 @@ export function loadEmails () {
       .then (function (response) {
         dispatch(loadEmailsSuccess(JSON.parse(response.data.body).emails))
       }).catch (function () {
-        console.log('Error: Please refresh')
+        console.log(`ERROR: ${LOAD_EMAILS_SUCCESS}`)
       })
   }
 }
@@ -75,7 +84,7 @@ export function loadEmails () {
 // ------------------------------------
 const ACTION_HANDLERS = {
   [LOAD_EMAILS_SUCCESS]  : (state, action) => {
-    return removeBadEmails(action.emails)
+    return removeEmailsAddressesInvalid(removeEmailsDatesInvalid(action.emails))
   },
   [MARK_READ]            : (state, action) => {
     return state.map((message) => {
