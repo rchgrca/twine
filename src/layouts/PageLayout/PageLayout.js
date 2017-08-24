@@ -5,6 +5,7 @@ import './PageLayout.scss'
 
 export const PageLayout = ({ children }) => (
   <div className='container text-center'>
+    <h2>Twine Email</h2>
     <div className='page-layout__viewport'>
       {children}
     </div>

@@ -29,7 +29,7 @@ export const MailRead = ({ messages, handleClick }) => {
   return (
     <div className='containerMailRead'>
       <h5>READ EMAIL</h5>
-      <ul>
+      <ul className='clearfix'>
         {getMessages(messages, handleClick)}
       </ul>
     </div>

@@ -1,5 +1,10 @@
-.page-layout__viewport {
-  padding-top: 4rem;
+.container {
+  h2 {
+    margin: 0;
+    padding: 20px 0;
+    background-color: royalblue;
+    color: #fff;
+  }
 }
 
 .page-layout__nav-item--active {

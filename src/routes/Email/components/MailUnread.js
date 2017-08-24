@@ -31,7 +31,7 @@ export const MailUnread = ({ messages, handleClick }) => {
   return (
     <div className='containerMailUnread clearfix'>
       <h5>UNREAD EMAIL</h5>
-      <ul>
+      <ul className='clearfix'>
         {getMessages(messages, handleClick)}
       </ul>
     </div>

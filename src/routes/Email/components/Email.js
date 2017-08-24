@@ -39,7 +39,6 @@ export const Email = ({ messages, markRead, markUnread }) => {
   convertDateToMs(messages)
   return (
     <div className='containerEmail'>
-      <h2>Twine Email</h2>
       <MailUnread
         messages={convertDateToFormat(getMail(messages, true).sort(keysrt('date')).reverse())}
         handleClick={markRead} />
