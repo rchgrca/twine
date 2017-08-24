@@ -10,11 +10,8 @@ import EmailRoute from './Email'
 export const createRoutes = (store) => ({
   path        : '/',
   component   : CoreLayout,
-  indexRoute  : Home,
-  childRoutes : [
-    CounterRoute(store),
-    EmailRoute(store)
-  ]
+  indexRoute  : EmailRoute(store),
+  childRoutes : []
 })
 
 /*  Note: childRoutes can be chunked or otherwise loaded programmatically
