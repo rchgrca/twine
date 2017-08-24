@@ -1,7 +1,5 @@
 // We only need to import the modules necessary for initial render
 import CoreLayout from '../layouts/PageLayout/PageLayout'
-import Home from './Home'
-import CounterRoute from './Counter'
 import EmailRoute from './Email'
 
 /*  Note: Instead of using JSX, we recommend using react-router
