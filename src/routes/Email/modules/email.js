@@ -1,4 +1,5 @@
 import axios from 'axios'
+import moment from 'moment'
 import fakedata from './messages'
 // ------------------------------------
 // Constants
@@ -12,6 +13,12 @@ const getApiUrl = (method) => {
   const host = 'https://s3.us-east-2.amazonaws.com'
   const path = `twine-public/apis/twine-mail-${method}.json`
   return `${proxy}${host}/${path}`
+}
+
+const removeBadEmails = (emails) => {
+  return emails.filter((email) => {
+    return moment(email.date).isValid()
+  })
 }
 
 // ------------------------------------
@@ -67,7 +74,9 @@ export function loadEmails () {
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [LOAD_EMAILS_SUCCESS]  : (state, action) => action.emails,
+  [LOAD_EMAILS_SUCCESS]  : (state, action) => {
+    return removeBadEmails(action.emails)
+  },
   [MARK_READ]            : (state, action) => {
     return state.map((message) => {
       if (message.id === action.payload) {
