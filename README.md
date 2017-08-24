@@ -19,17 +19,23 @@ $ npm install && npm start
 
 ```
 $ npm run test
+$ npm run test:watch
+```
+
+# Lint
+
+```
+$ npm run lint
 ```
 
 # Details
 
 * Unread and Read emails are sorted by most recent
-* click on "Mark as Read", sends async request, on success, it toggles the "unread" property to
+* Click on "Mark as Read", sends async request, on success, it toggles the "unread" property to
 false, places the message in the Unread section
-* click on "Mark as Unread", sends async request, on success, it toggles the "unread" property to
+* Click on "Mark as Unread", sends async request, on success, it toggles the "unread" property to
 true, places the message in the Read section
-* uses CORS proxy server to resolve cross origin issues:  http://cors-proxy.htmldriven.com/?url={url}
-* email body section in both sections can accomodate two lines before an ellipsis is used
+* Email body section in both sections can accomodate two lines before an ellipsis is used
 Truncation done with javascript.  Pure CSS truncation works only on one line and other solutions
 are not cross-browser compatible
 * Malformed data:
@@ -37,3 +43,4 @@ are not cross-browser compatible
   the console.  The null is discarded and "Invalid Date" displays on the page
   * one email address is missing an "@".  Detection is logged to the console and the address is not displayed
 * Tests can be found in /tests/routes/Email/components/Email.spec.js
+* All lint tests pass
