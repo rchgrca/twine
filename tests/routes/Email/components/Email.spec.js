@@ -44,10 +44,6 @@ describe('(Component) Email', () => {
     _wrapper = mount(<Email {..._props} />)
   })
 
-  it('renders with an <h2> that includes Email label.', () => {
-    expect(_wrapper.find('h2').text()).to.match(/Twine Email/)
-  })
-
   it('renders an email unread email message', () => {
     expect(_wrapper.find(".containerMailUnread").find(".message")).to.have.length(1)
   })
@@ -132,7 +128,7 @@ describe('(Component) Email', () => {
 
     it('exists', () => {
       expect(_button).to.exist()
-      expect(_button.text()).to.match(/Mark as Unread$/)
+      expect(_button.text()).to.match(/Mark Unread$/)
     })
 
     it('Calls pops.markUread when clicked and updates the store', () => {
