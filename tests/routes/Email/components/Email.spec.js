@@ -75,7 +75,7 @@ describe('(Component) Email', () => {
       expect(_button.text()).to.match(/Mark as Read$/)
     })
 
-    it('Calls pops.markRead when clicked and updates the store', () => {
+    it('Calls props.markRead when clicked and updates the store', () => {
       _spies.dispatch.should.have.not.been.called()
 
       _button.at(0).simulate('click')
@@ -131,7 +131,7 @@ describe('(Component) Email', () => {
       expect(_button.text()).to.match(/Mark Unread$/)
     })
 
-    it('Calls pops.markUread when clicked and updates the store', () => {
+    it('Calls props.markUread when clicked and updates the store', () => {
       _spies.dispatch.should.have.not.been.called()
 
       _button.simulate('click')
