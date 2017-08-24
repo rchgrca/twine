@@ -52,11 +52,6 @@ export function markUnread (value = 1) {
   }
 }
 
-export const actions = {
-  markRead,
-  markUnread
-}
-
 export function loadEmails () {
   return function (dispatch) {
     return axios.get(getApiUrl('get'), {})
