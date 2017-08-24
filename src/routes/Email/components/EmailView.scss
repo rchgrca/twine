@@ -24,6 +24,7 @@ button {
 
 .containerEmail {
   background-color: #f0f0f0;
+  border: 1px solid #e0e0e0;
 }
 
 .containerMailUnread {
@@ -67,7 +68,9 @@ button {
 
 .containerMailRead {
   ul {
-    padding: 0 2.5rem 1rem;
+    margin: 0;
+    padding: 0 2.5rem;
+    background-color: white;
     .message {
       padding: 1rem 0;
       border-bottom: 1px solid lightgray;
@@ -86,10 +89,14 @@ button {
       .containerMessage {
         width: 53rem;
         padding-left: 2rem;
+        .containerBody {
+          margin-top: 1.5rem;
+        }
       }
-      .containerBody {
-        margin-top: 1.5rem;
+      .containerTimestamp {
+        color: #ccc;
       }
+
     }
     .message:last-child {
       border-bottom: 0;
