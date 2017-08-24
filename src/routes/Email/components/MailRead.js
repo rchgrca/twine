@@ -12,7 +12,7 @@ const getMessages = (messages, handleClick) => {
     return (
       <li className='message clearfix' key={`message-read-${i}`}>
         <div className='cell containerBtn'>
-          <button className='btn btn-primary' onClick={() => handleClick(message.id)}>Mark as Unread</button>
+          <button className='btn btn-primary' onClick={() => handleClick(message.id)}>Mark Unread</button>
         </div>
         <div className='cell containerMessage'>
           <div className='subject'>{message.subject}</div>

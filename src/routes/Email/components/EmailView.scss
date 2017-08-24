@@ -1,16 +1,13 @@
 ul, li {
   list-style-type: none;
   text-align: left;
+  padding: 0;
 }
 
 h5 {
   text-align: left;
   margin-bottom: 1em;
   color: royalblue;
-}
-
-ul {
-  padding: 0;
 }
 
 button {
@@ -24,58 +21,68 @@ button {
 }
 
 .containerEmail {
-  padding: 20px 30px;
+  padding: 1.5rem 2rem;
   background-color: #f0f0f0;
 }
 
 .containerMailUnread {
-  margin-bottom: 40px;
+  margin-bottom: 2rem;
   .message {
     float: left;
-    width: 515px;
-    margin-right: 20px;
+    width: 31rem;
+    margin-right: 1.5rem;
     border: 1px solid lightgray;
-    padding: 20px 10px;
-    margin-bottom: 20px;
+    padding: 1.5rem 0.8rem;
+    margin-bottom: 1.5rem;
     background-color: white;
     border-radius: 5px;
   }
   .containerSubject {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid lightgray;
     .cell {
       float: left;
     }
     .date {
-      padding-left: 15px;
+      padding-left: 1rem;
+      width: 9rem;
+      text-align: right;
     }
   }
   .containerBody {
     clear: both;
-    padding-bottom: 20px;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid lightgray;
-    height: 70px;
+    height: 4.5rem;
   }
   .containerBtn {
-    padding-top: 20px;
+    padding-top: 1.5rem;
     text-align: center;
   }
 }
 
 .containerMailRead {
   .message {
-    padding: 15px 0;
+    padding: 1rem 0;
     border-bottom: 1px solid lightgray;
     .cell {
       float: left;
+      button {
+        background-color: orange;
+        border-color: orange;
+        color: white;
+        width: 5rem;
+        white-space: normal;
+        text-align: left;
+      }
     }
     .containerMessage {
-      width: 740px;
+      width: 54rem;
       padding-left: 15px;
     }
     .containerBody {
-      margin-top: 20px;
+      margin-top: 1.5rem;
     }
   }
   .message:last-child {
