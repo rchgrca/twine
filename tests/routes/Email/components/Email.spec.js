@@ -114,7 +114,7 @@ describe('(Component) Email', () => {
       })
 
       expect(_wrapper.find(".containerMailRead").find(".message")).to.have.length(2)
-      expect(_wrapper.find(".containerMailUnread").find(".message")).to.have.length(0)
+      expect(_wrapper.find(".containerMailUnread").find(".message").text()).to.match(/There are no Unread messages$/)
 
     })
   })
@@ -169,7 +169,7 @@ describe('(Component) Email', () => {
           }]
       })
 
-      expect(_wrapper.find(".containerMailRead").find(".message")).to.have.length(0)
+      expect(_wrapper.find(".containerMailRead").find(".message").text()).to.match(/There are no Read messages$/)
       expect(_wrapper.find(".containerMailUnread").find(".message")).to.have.length(2)
     })
   })
