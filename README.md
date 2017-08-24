@@ -15,15 +15,16 @@ $ npm install && npm start
 * http://localhost:3000
 
 
-# Test
-
+# Tests
+  * All tests pass
+  * Location: /tests/routes/Email/components/Email.spec.js
 ```
 $ npm run test
 $ npm run test:watch
 ```
 
 # Lint
-
+  * All tests pass
 ```
 $ npm run lint
 ```
@@ -42,5 +43,3 @@ are not cross-browser compatible
   * one email message has a date listed as null.  moment() returns "Invalid Date", detection is logged to
   the console.  The null is discarded and "Invalid Date" displays on the page
   * one email address is missing an "@".  Detection is logged to the console and the address is not displayed
-* Tests can be found in /tests/routes/Email/components/Email.spec.js
-* All lint tests pass
