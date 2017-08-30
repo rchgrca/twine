@@ -9,7 +9,7 @@ export const MARK_UNREAD = 'MARK_UNREAD'
 export const LOAD_EMAILS_SUCCESS = 'LOAD_EMAILS_SUCCESS'
 
 const getApiUrl = (method) => {
-  const proxy = 'http://cors-proxy.htmldriven.com/?url='
+  const proxy = 'https://cors-anywhere.herokuapp.com/'
   const host = 'https://s3.us-east-2.amazonaws.com'
   const path = `twine-public/apis/twine-mail-${method}.json`
   return `${proxy}${host}/${path}`
@@ -79,7 +79,7 @@ export function loadEmails () {
   return function (dispatch) {
     return axios.get(getApiUrl('get'), {})
       .then(function (response) {
-        dispatch(loadEmailsSuccess(JSON.parse(response.data.body).emails))
+        dispatch(loadEmailsSuccess(response.data.emails))
       }).catch(function () {
         console.log(`ERROR: ${LOAD_EMAILS_SUCCESS}`)
       })
