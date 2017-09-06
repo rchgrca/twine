@@ -44,7 +44,7 @@ are not cross-browser compatible
   the console.  The null is discarded and "Invalid Date" displays on the page
   * one email address is missing an "@".  Detection is logged to the console and the address is not displayed
 
-# Initialize React:
+# Initialize React
   * index.html, id="root"
   * main.js, build parent component <App />, pass in props:  store, routes
     * store (application state)
@@ -57,7 +57,7 @@ are not cross-browser compatible
       * <Router /> passes store and routes data (containing email data) to its child components
         * /src/layouts/PageLayout/PageLayout.js:  <PageLayout /> sends props child components:  Email in this case
 
-# Initialize Redux:
+# Initialize Redux
   * store/createStore.js
     * creates Redux store, dispatch loadEmails() to populate store
   * twine/Email/index.js
@@ -82,7 +82,7 @@ are not cross-browser compatible
   * components/Email.js
     * populates component props with new messages state, markRead, markUnread
 
-# Mark Read:
+# Mark Read
   * modules/email.js
     * dispatched action MARK_READ
     * calls reducer which updates/populates store with API response
@@ -90,7 +90,7 @@ are not cross-browser compatible
   * components/Emails.js
     * updates components props with new messages state, markRead, markUnread
 
-# Mark Unread:
+# Mark Unread
   * modules/email.js
     * dispatched action MARK_READ
     * calls reducer which updates/populates store with API response
@@ -98,7 +98,7 @@ are not cross-browser compatible
   * components/Emails.js
     * updates components props with new messages state, markRead, markUnread
 
-# Requirements:
+# Requirements
   * separate Unread and Read emails and sort them by most recent
     * make API request to load email messages and place in Redux data store
       * createStore.js
