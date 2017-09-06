@@ -36,7 +36,7 @@ $ npm run lint
 false, places the message in the Unread section
 * Click on "Mark as Unread", sends async request, on success, it toggles the "unread" property to
 true, places the message in the Read section
-* Email body section in both sections can accomodate two lines before an ellipsis is used
+* Email body section in both sections can accommodate two lines before an ellipsis is used
 Truncation done with javascript.  Pure CSS truncation works only on one line and other solutions
 are not cross-browser compatible
 * Malformed data:
@@ -78,7 +78,7 @@ are not cross-browser compatible
   * modules/email.js
     * dispatch action LOAD_EMAILS_SUCCESS
     * calls reducer which updates/populates store with API response
-    * passes store data as props to presentation component componets/Email.js
+    * passes store data as props to presentation component components/Email.js
   * components/Email.js
     * populates component props with new messages state, markRead, markUnread
 
@@ -98,7 +98,7 @@ are not cross-browser compatible
   * components/Emails.js
     * updates components props with new messages state, markRead, markUnread
 
-# Requiremets:
+# Requirements:
   * separate Unread and Read emails and sort them by most recent
     * make API request to load email messages and place in Redux data store
       * createStore.js
