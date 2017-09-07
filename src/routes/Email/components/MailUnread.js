@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import MailEmpty from './MailEmpty'
 import { setMultiLineTruncate } from '../modules/methods'
 
 const getMessages = (messages, handleClick) => {
@@ -23,7 +24,7 @@ const getMessages = (messages, handleClick) => {
     })
   } else {
     return (
-      <li className='message center'>There are no Unread messages</li>
+      <MailEmpty text={'There are no Unread messages'} />
     )
   }
 }
