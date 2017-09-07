@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MailRead from './MailRead'
 import MailUnread from './MailUnread'
+import MailLoading from './MailLoading'
 import { keysrt, getMail } from '../modules/methods'
 import './EmailView.scss'
 
