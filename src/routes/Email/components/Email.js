@@ -6,15 +6,23 @@ import MailLoading from './MailLoading'
 import { keysrt, getMail } from '../modules/methods'
 import './EmailView.scss'
 
-export const Email = ({ messages, markRead, markUnread }) => {
+const getMessages = ({ messages, markRead, markUnread }) => {
   return (
-    <div className='containerEmail'>
+    <div>
       <MailUnread
         messages={getMail(messages, true).sort(keysrt('date')).reverse()}
         handleClick={markRead} />
       <MailRead
         messages={getMail(messages, false).sort(keysrt('date')).reverse()}
         handleClick={markUnread} />
+    </div>
+  )
+}
+
+export const Email = ({ messages, markRead, markUnread }) => {
+  return (
+    <div className='containerEmail'>
+      {getMessages({ messages, markRead, markUnread })}
     </div>
   )
 }
