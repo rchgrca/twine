@@ -1,20 +1,14 @@
 import axios from 'axios'
 import moment from 'moment'
 import fakedata from './messages'
-import { convertDateToMs, convertDateToFormat } from '../modules/methods'
+import { convertDateToMs, convertDateToFormat,
+         getApiUrl } from '../modules/methods'
 // ------------------------------------
 // Constants
 // ------------------------------------
 export const MARK_READ = 'MARK_READ'
 export const MARK_UNREAD = 'MARK_UNREAD'
 export const LOAD_EMAILS_SUCCESS = 'LOAD_EMAILS_SUCCESS'
-
-const getApiUrl = (method) => {
-  const proxy = 'https://cors-anywhere.herokuapp.com/'
-  const host = 'https://s3.us-east-2.amazonaws.com'
-  const path = `twine-public/apis/twine-mail-${method}.json`
-  return `${proxy}${host}/${path}`
-}
 
 const removeEmailsDatesInvalid = (emails) => {
   return emails.map((email) => {

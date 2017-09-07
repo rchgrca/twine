@@ -1,5 +1,12 @@
 import moment from 'moment'
 
+export const getApiUrl = (method) => {
+  const proxy = 'https://cors-anywhere.herokuapp.com/'
+  const host = 'https://s3.us-east-2.amazonaws.com'
+  const path = `twine-public/apis/twine-mail-${method}.json`
+  return `${proxy}${host}/${path}`
+}
+
 export const keysrt = (key) => {
   return (a, b) => {
     if (a[key] > b[key]) return 1
