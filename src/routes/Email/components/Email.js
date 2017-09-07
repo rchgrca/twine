@@ -2,17 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MailRead from './MailRead'
 import MailUnread from './MailUnread'
-import { keysrt, convertDateToMs, convertDateToFormat, getMail } from '../modules/methods'
+import { keysrt, getMail } from '../modules/methods'
 import './EmailView.scss'
 
 export const Email = ({ messages, markRead, markUnread }) => {
   return (
     <div className='containerEmail'>
       <MailUnread
-        messages={convertDateToFormat(convertDateToMs(getMail(messages, true).sort(keysrt('date')).reverse()))}
+        messages={getMail(messages, true).sort(keysrt('date')).reverse()}
         handleClick={markRead} />
       <MailRead
-        messages={convertDateToFormat(convertDateToMs(getMail(messages, false).sort(keysrt('date')).reverse()))}
+        messages={getMail(messages, false).sort(keysrt('date')).reverse()}
         handleClick={markUnread} />
     </div>
   )

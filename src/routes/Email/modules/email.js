@@ -1,6 +1,7 @@
 import axios from 'axios'
 import moment from 'moment'
 import fakedata from './messages'
+import { convertDateToMs, convertDateToFormat } from '../modules/methods'
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -91,7 +92,7 @@ export function loadEmails () {
 // ------------------------------------
 const ACTION_HANDLERS = {
   [LOAD_EMAILS_SUCCESS]  : (state, action) => {
-    return removeEmailsAddressesInvalid(removeEmailsDatesInvalid(action.emails))
+    return convertDateToFormat(convertDateToMs(removeEmailsAddressesInvalid(removeEmailsDatesInvalid(action.emails))))
   },
   [MARK_READ]            : (state, action) => {
     return state.map((message) => {
