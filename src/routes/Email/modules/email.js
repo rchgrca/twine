@@ -2,16 +2,20 @@ import axios from 'axios'
 import fakedata from './messages'
 import { convertDateToMs, convertDateToFormat,
          removeEmailsDatesInvalid, removeEmailsAddressesInvalid,
-         getApiUrl } from '../modules/methods'
+         getApiUrl, filterMessages } from '../modules/methods'
+
 // ------------------------------------
 // Constants
 // ------------------------------------
+
 export const MARK_READ = 'MARK_READ'
 export const MARK_UNREAD = 'MARK_UNREAD'
 export const LOAD_EMAILS_SUCCESS = 'LOAD_EMAILS_SUCCESS'
+
 // ------------------------------------
 // Actions
 // ------------------------------------
+
 export function loadEmailsSuccess (emails) {
   return {
     type: LOAD_EMAILS_SUCCESS,
@@ -61,9 +65,10 @@ export function loadEmails () {
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
+
 const ACTION_HANDLERS = {
   [LOAD_EMAILS_SUCCESS]  : (state, action) => {
-    return convertDateToFormat(convertDateToMs(removeEmailsAddressesInvalid(removeEmailsDatesInvalid(action.emails))))
+    return filterMessages(action.emails)
   },
   [MARK_READ]            : (state, action) => {
     return state.map((message) => {

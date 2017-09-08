@@ -59,6 +59,10 @@ export const getMail = (messages, isUnread) => {
   })
 }
 
+export const filterMessages = (messages) => {
+  return convertDateToFormat(convertDateToMs(removeEmailsAddressesInvalid(removeEmailsDatesInvalid(messages))))
+}
+
 export const setMultiLineTruncate = (text, maxlength) => {
   // uses JS solution because pure CSS solutions are not cross-browser reliable
   const ellipsis = text.length > maxlength ? '...' : ''
