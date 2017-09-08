@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import MailEmpty from './MailEmpty'
 import { setMultiLineTruncate } from '../modules/methods'
 
-const getMessages = (messages, handleClick) => {
+const getMessages = (messages, handleClick, handleDelete) => {
   if (messages.length > 0) {
     return messages.map((message, i) => {
       return (
@@ -17,7 +17,7 @@ const getMessages = (messages, handleClick) => {
             <div className='containerBody'>{setMultiLineTruncate(message.body, 220)}</div>
           </div>
           <div className='cell containerTimestamp'>{message.date}</div>
-          <div className='cell delete'>Delete</div>
+          <div className='cell delete' onClick={() => handleDelete(message.id)}>Delete</div>
         </li>
       )
     })
