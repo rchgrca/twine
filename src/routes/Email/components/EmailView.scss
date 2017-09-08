@@ -51,10 +51,15 @@ button {
         float: left;
         width: 20rem;
       }
-      .date {
+      .date, .delete {
         padding-left: 1rem;
         width: 9rem;
         text-align: right;
+      }
+      .delete {
+        color: blue;
+        opacity: 0.5;
+        cursor: pointer;
       }
     }
     .containerBody {
@@ -99,6 +104,11 @@ button {
       }
       .containerTimestamp {
         color: #ccc;
+      }
+      .delete {
+        color: blue;
+        opacity: 0.5;
+        cursor: pointer;
       }
 
     }

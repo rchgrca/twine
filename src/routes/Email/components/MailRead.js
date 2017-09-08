@@ -17,6 +17,7 @@ const getMessages = (messages, handleClick) => {
             <div className='containerBody'>{setMultiLineTruncate(message.body, 220)}</div>
           </div>
           <div className='cell containerTimestamp'>{message.date}</div>
+          <div className='cell delete'>Delete</div>
         </li>
       )
     })

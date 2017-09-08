@@ -14,6 +14,7 @@ const getMessages = (messages, handleClick) => {
               <div>{message.to.join(', ')}</div>
             </div>
             <div className='cell date'>{message.date}</div>
+            <div className='cell delete'>Delete</div>
           </div>
           <div className='containerBody'>{setMultiLineTruncate(message.body, 115)}</div>
           <div className='containerBtn'>
