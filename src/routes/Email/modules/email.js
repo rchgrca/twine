@@ -1,5 +1,6 @@
 import axios from 'axios'
 import fakedata from './messages'
+import fakeloading from './emailsLoading'
 import { getApiUrl, filterMessages } from '../modules/methods'
 
 // ------------------------------------
