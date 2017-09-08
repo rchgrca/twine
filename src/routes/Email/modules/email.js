@@ -66,14 +66,22 @@ export function deleteMail (value = 1) {
   }
 }
 
-export function loading () {
-  return {
-    type: LOADING,
-    payload: fakeloading.emails
+export function loadEmails () {
+  return (dispatch) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        dispatch({
+          type: LOADING,
+          payload: fakeloading.emails
+        })
+        resolve()
+      }, 1)
+    })
+    .then(dispatch(getEmailData()))
   }
 }
 
-export function loadEmails () {
+export function getEmailData () {
   return function (dispatch) {
     return axios.get(getApiUrl('get'), {})
       .then(function (response) {
