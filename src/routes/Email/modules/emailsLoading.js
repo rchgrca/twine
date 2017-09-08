@@ -1,22 +1,13 @@
 export default Object.assign({}, {
   'emails': [
     {
-      'id': 0,
+      'id': -1,
       'subject': 'IS_LOADING',
       'from': '',
       'to': [],
       'body': '',
       'date': '',
       'unread': true
-    },
-    {
-      'id': 1,
-      'subject': 'IS_LOADING',
-      'from': '',
-      'to': [],
-      'body': '',
-      'date': '',
-      'unread': false
-    },
+    }
   ]
 })
