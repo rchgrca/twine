@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { markRead, markUnread } from '../modules/email'
+import { markRead, markUnread, deleteMail } from '../modules/email'
 
 /*  This is a container component. Notice it does not contain any JSX,
     nor does it import React. This component is **only** responsible for
@@ -14,7 +14,8 @@ import Email from '../components/Email'
 
 const mapDispatchToProps = {
   markRead,
-  markUnread
+  markUnread,
+  deleteMail
 }
 
 const mapStateToProps = (state) => ({

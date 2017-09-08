@@ -11,6 +11,7 @@ export const MARK_READ = 'MARK_READ'
 export const MARK_UNREAD = 'MARK_UNREAD'
 export const LOAD_EMAILS_SUCCESS = 'LOAD_EMAILS_SUCCESS'
 export const LOADING = 'LOADING'
+export const DELETE_MAIL = 'DELETE_MAIL'
 
 // ------------------------------------
 // Actions
@@ -51,6 +52,20 @@ export function markUnread (value = 1) {
   }
 }
 
+export function deleteMail (value = 1) {
+  return function (dispatch, getState) {
+    return axios.get(getApiUrl('put'), {})
+      .then(function (response) {
+        dispatch({
+          type    : DELETE_MAIL,
+          payload : value
+        })
+      }).catch(function () {
+        console.log(`ERROR: ${DELETE_MAIL}`)
+      })
+  }
+}
+
 export function loading () {
   return {
     type: LOADING,
@@ -79,6 +94,11 @@ const ACTION_HANDLERS = {
   },
   [LOAD_EMAILS_SUCCESS] : (state, action) => {
     return filterMessages(action.emails)
+  },
+  [DELETE_MAIL] : (state, action) => {
+    return state.filter((message) => {
+      return message.id !== action.payload
+    })
   },
   [MARK_READ] : (state, action) => {
     return state.map((message) => {
