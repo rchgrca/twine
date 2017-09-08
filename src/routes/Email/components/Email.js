@@ -19,14 +19,10 @@ const getMessages = (messages, markRead, markUnread) => {
   )
 }
 
-const getLoadingMessage = (messages, markRead, markUnread) => {
-  return <MailLoading />
-}
-
 export const Email = ({ messages, markRead, markUnread }) => {
   return (
     <div className='containerEmail'>
-      {isLoading(messages) ? getLoadingMessage() : getMessages(messages, markRead, markUnread)}
+      {isLoading(messages) ? <MailLoading /> : getMessages(messages, markRead, markUnread)}
     </div>
   )
 }
