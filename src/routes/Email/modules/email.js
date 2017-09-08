@@ -1,9 +1,8 @@
 import axios from 'axios'
-import moment from 'moment'
 import fakedata from './messages'
 import { convertDateToMs, convertDateToFormat,
          removeEmailsDatesInvalid, removeEmailsAddressesInvalid,
-         getApiUrl,  } from '../modules/methods'
+         getApiUrl } from '../modules/methods'
 // ------------------------------------
 // Constants
 // ------------------------------------
