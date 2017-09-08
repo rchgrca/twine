@@ -28,12 +28,12 @@ const getMessages = (messages, handleClick, handleDelete) => {
   }
 }
 
-export const MailRead = ({ messages, handleClick }) => {
+export const MailRead = ({ messages, handleClick, handleDelete }) => {
   return (
     <div className='containerMailRead'>
       <h5>READ EMAIL</h5>
       <ul className='clearfix'>
-        {getMessages(messages, handleClick)}
+        {getMessages(messages, handleClick, handleDelete)}
       </ul>
     </div>
   )
@@ -42,6 +42,7 @@ export const MailRead = ({ messages, handleClick }) => {
 MailRead.propTypes = {
   messages: PropTypes.array.isRequired,
   handleClick: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 }
 
 export default MailRead

@@ -31,6 +31,7 @@ Email.propTypes = {
   messages: PropTypes.array.isRequired,
   markRead: PropTypes.func.isRequired,
   markUnread: PropTypes.func.isRequired,
+  deleteMail: PropTypes.func.isRequired,
 }
 
 export default Email

@@ -30,12 +30,12 @@ const getMessages = (messages, handleClick, handleDelete) => {
   }
 }
 
-export const MailUnread = ({ messages, handleClick }) => {
+export const MailUnread = ({ messages, handleClick, handleDelete }) => {
   return (
     <div className='containerMailUnread clearfix'>
       <h5>UNREAD EMAIL</h5>
       <ul className='clearfix'>
-        {getMessages(messages, handleClick)}
+        {getMessages(messages, handleClick, handleDelete)}
       </ul>
     </div>
   )
@@ -44,6 +44,7 @@ export const MailUnread = ({ messages, handleClick }) => {
 MailUnread.propTypes = {
   messages: PropTypes.array.isRequired,
   handleClick: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 }
 
 export default MailUnread
