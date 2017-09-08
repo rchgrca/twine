@@ -10,6 +10,7 @@ import { getApiUrl, filterMessages } from '../modules/methods'
 export const MARK_READ = 'MARK_READ'
 export const MARK_UNREAD = 'MARK_UNREAD'
 export const LOAD_EMAILS_SUCCESS = 'LOAD_EMAILS_SUCCESS'
+export const LOADING = 'LOADING'
 
 // ------------------------------------
 // Actions
@@ -50,6 +51,13 @@ export function markUnread (value = 1) {
   }
 }
 
+export function loading () {
+  return {
+    type: LOADING,
+    payload: fakeloading.emails
+  }
+}
+
 export function loadEmails () {
   return function (dispatch) {
     return axios.get(getApiUrl('get'), {})
@@ -66,6 +74,9 @@ export function loadEmails () {
 // ------------------------------------
 
 const ACTION_HANDLERS = {
+  [LOADING]  : (state, action) => {
+    return action.payload
+  },
   [LOAD_EMAILS_SUCCESS]  : (state, action) => {
     return filterMessages(action.emails)
   },
