@@ -6,7 +6,7 @@ import MailLoading from './MailLoading'
 import { keysrt, getMail } from '../modules/methods'
 import './EmailView.scss'
 
-const getMessages = ({ messages, markRead, markUnread }) => {
+const getMessages = (messages, markRead, markUnread) => {
   return (
     <div>
       <MailUnread
@@ -22,7 +22,7 @@ const getMessages = ({ messages, markRead, markUnread }) => {
 export const Email = ({ messages, markRead, markUnread }) => {
   return (
     <div className='containerEmail'>
-      {getMessages({ messages, markRead, markUnread })}
+      {getMessages(messages, markRead, markUnread)}
     </div>
   )
 }
