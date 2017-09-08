@@ -74,13 +74,13 @@ export function loadEmails () {
 // ------------------------------------
 
 const ACTION_HANDLERS = {
-  [LOADING]  : (state, action) => {
+  [LOADING] : (state, action) => {
     return action.payload
   },
-  [LOAD_EMAILS_SUCCESS]  : (state, action) => {
+  [LOAD_EMAILS_SUCCESS] : (state, action) => {
     return filterMessages(action.emails)
   },
-  [MARK_READ]            : (state, action) => {
+  [MARK_READ] : (state, action) => {
     return state.map((message) => {
       if (message.id === action.payload) {
         message.unread = false
@@ -88,7 +88,7 @@ const ACTION_HANDLERS = {
       return message
     })
   },
-  [MARK_UNREAD]          : (state, action) => {
+  [MARK_UNREAD] : (state, action) => {
     return state.map((message) => {
       if (message.id === action.payload) {
         message.unread = true
