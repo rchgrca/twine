@@ -59,8 +59,16 @@ export const getMail = (messages, isUnread) => {
   })
 }
 
+export const removeInvalidData = (messages) => {
+  return removeEmailsAddressesInvalid(removeEmailsDatesInvalid(messages))
+}
+
+export const convertDates = (messages) => {
+  return convertDateToFormat(convertDateToMs(removeInvalidData(messages)))
+}
+
 export const filterMessages = (messages) => {
-  return convertDateToFormat(convertDateToMs(removeEmailsAddressesInvalid(removeEmailsDatesInvalid(messages))))
+  return convertDates(messages)
 }
 
 export const setMultiLineTruncate = (text, maxlength) => {
