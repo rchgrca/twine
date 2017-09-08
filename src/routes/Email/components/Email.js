@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import MailRead from './MailRead'
 import MailUnread from './MailUnread'
 import MailLoading from './MailLoading'
-import { keysrt, getMail } from '../modules/methods'
+import { keysrt, getMail, isLoading } from '../modules/methods'
 import './EmailView.scss'
 
 const getMessages = (messages, markRead, markUnread) => {
@@ -19,10 +19,14 @@ const getMessages = (messages, markRead, markUnread) => {
   )
 }
 
+const getLoadingMessage = (messages, markRead, markUnread) => {
+  return <MailLoading />
+}
+
 export const Email = ({ messages, markRead, markUnread }) => {
   return (
     <div className='containerEmail'>
-      {getMessages(messages, markRead, markUnread)}
+      {isLoading(messages) ? getLoadingMessage() : getMessages(messages, markRead, markUnread)}
     </div>
   )
 }

@@ -59,6 +59,12 @@ export const getMail = (messages, isUnread) => {
   })
 }
 
+export const isLoading = (messages) => {
+  const messageNull = { id:null, subject: null }
+  const message = messages.length === 0 ? messageNull : messages[0]
+  return message.id === -1 && message.subject === 'IS_LOADING' ? true : false
+}
+
 export const removeInvalidData = (messages) => {
   return removeEmailsAddressesInvalid(removeEmailsDatesInvalid(messages))
 }
