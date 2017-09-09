@@ -45,6 +45,24 @@ describe('(Component) Email', () => {
     _wrapper = mount(<Email {..._props} />)
   })
 
+  describe('The loading messages page', () => {
+    it('displays a loading icon before loading email messages', () => {
+      _wrapper.setProps({
+        messages : [
+          {
+            'id': -1,
+            'subject': 'IS_LOADING',
+            'from': '',
+            'to': [],
+            'body': '',
+            'date': '',
+            'unread': true
+          }]
+      })
+      expect(_wrapper.find('img').find('.loading')).to.have.length(1)
+    })
+  })
+
   describe('The email application user interface', () => {
     it('renders an email unread email message', () => {
       expect(_wrapper.find('.containerMailUnread').find('.message')).to.have.length(1)
