@@ -45,22 +45,24 @@ describe('(Component) Email', () => {
     _wrapper = mount(<Email {..._props} />)
   })
 
-  it('renders an email unread email message', () => {
-    expect(_wrapper.find('.containerMailUnread').find('.message')).to.have.length(1)
-  })
+  describe('The email application user interface', () => {
+    it('renders an email unread email message', () => {
+      expect(_wrapper.find('.containerMailUnread').find('.message')).to.have.length(1)
+    })
 
-  it('renders subheaders <h5>.', () => {
-    expect(_wrapper.find('h5').at(0).text()).to.match(/UNREAD EMAIL$/)
-    expect(_wrapper.find('h5').at(1).text()).to.match(/READ EMAIL$/)
-  })
+    it('renders subheaders <h5>.', () => {
+      expect(_wrapper.find('h5').at(0).text()).to.match(/UNREAD EMAIL$/)
+      expect(_wrapper.find('h5').at(1).text()).to.match(/READ EMAIL$/)
+    })
 
-  it('places emails depending on their read status', () => {
-    expect(_wrapper.find('.containerMailRead').find('.message')).to.have.length(1)
-    expect(_wrapper.find('.containerMailUnread').find('.message')).to.have.length(1)
-  })
+    it('places emails depending on their read status', () => {
+      expect(_wrapper.find('.containerMailRead').find('.message')).to.have.length(1)
+      expect(_wrapper.find('.containerMailUnread').find('.message')).to.have.length(1)
+    })
 
-  it('renders exactly two buttons.', () => {
-    expect(_wrapper.find('button')).to.have.length(2)
+    it('renders exactly two buttons.', () => {
+      expect(_wrapper.find('button')).to.have.length(2)
+    })
   })
 
   describe('Mark as Read', () => {
