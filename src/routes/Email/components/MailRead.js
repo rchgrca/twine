@@ -31,10 +31,12 @@ const getMessages = (messages, handleClick, handleDelete) => {
 export const MailRead = ({ messages, handleClick, handleDelete }) => {
   return (
     <div className='containerMailRead'>
-      <h5 className='pa3 blue'>READ EMAIL</h5>
-      <ul className='list cf'>
-        {getMessages(messages, handleClick, handleDelete)}
-      </ul>
+      <h5 className='mb0 pa3 pt0 blue'>READ EMAIL</h5>
+      <div className='containerMessages pl1 pr1'>
+        <ul className='list pa0 bg-black-05 cf'>
+          {getMessages(messages, handleClick, handleDelete)}
+        </ul>
+      </div>
     </div>
   )
 }

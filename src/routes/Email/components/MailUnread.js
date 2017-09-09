@@ -13,8 +13,8 @@ const getMessages = (messages, handleClick, handleDelete) => {
               <div className='subject b tl'>{message.subject}</div>
               <div className='tl'>{message.to.join(', ')}</div>
             </div>
-            <div className='cell date'>{message.date}</div>
-            <div className='cell delete' onClick={() => handleDelete(message.id)}>Delete</div>
+            <div className='cell date tl'>{message.date}</div>
+            <div className='cell delete tl' onClick={() => handleDelete(message.id)}>Delete</div>
           </div>
           <div className='containerBody tl'>{setMultiLineTruncate(message.body, 115)}</div>
           <div className='containerBtn'>
@@ -33,10 +33,12 @@ const getMessages = (messages, handleClick, handleDelete) => {
 export const MailUnread = ({ messages, handleClick, handleDelete }) => {
   return (
     <div className='containerMailUnread cf'>
-      <h5 className='pa3 blue'>UNREAD EMAIL</h5>
-      <ul className='list cf'>
-        {getMessages(messages, handleClick, handleDelete)}
-      </ul>
+      <h5 className='mb0 pa3 blue'>UNREAD EMAIL</h5>
+      <div className='containerMessages pl1 pr1'>
+        <ul className='list pa0 bg-black-05 cf'>
+          {getMessages(messages, handleClick, handleDelete)}
+        </ul>
+      </div>
     </div>
   )
 }

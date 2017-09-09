@@ -1,34 +1,29 @@
 .containerEmail {
   .loading {
-    margin: 50px 0 600px;
+    margin: 3rem 0 39rem;
   }
 }
 
 .containerMailUnread {
   ul {
-    padding-top: 2rem;
     .message {
       float: left;
-      width: 31rem;
-      margin-left: 2.5rem;
       border: 1px solid lightgray;
       padding: 1.5rem 0.8rem;
       margin-bottom: 2.5rem;
       background-color: white;
       border-radius: 5px;
     }
+    .message:last-child {
+      margin-bottom: 0;
+    }
     .containerSubject {
       margin-bottom: 1.5rem;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid lightgray;
       .cell {
-        float: left;
-        width: 20rem;
       }
       .date, .delete {
-        padding-left: 1rem;
-        width: 9rem;
-        text-align: right;
       }
       .delete {
         color: blue;
@@ -63,14 +58,12 @@
           background-color: orange;
           border-color: orange;
           color: white;
-          width: 5rem;
           white-space: normal;
           text-align: left;
           margin-top: 1rem;
         }
       }
       .containerMessage {
-        width: 52rem;
         padding-left: 2rem;
         .containerBody {
           margin-top: 1.5rem;
