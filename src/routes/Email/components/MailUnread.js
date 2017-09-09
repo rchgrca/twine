@@ -8,7 +8,7 @@ const getMessages = (messages, handleClick, handleDelete) => {
     return messages.map((message, i) => {
       return (
         <li className='message' key={`message-unread-${i}`}>
-          <div className='containerSubject clearfix'>
+          <div className='containerSubject cf'>
             <div className='cell'>
               <div className='subject b tl'>{message.subject}</div>
               <div className='tl'>{message.to.join(', ')}</div>
@@ -32,9 +32,9 @@ const getMessages = (messages, handleClick, handleDelete) => {
 
 export const MailUnread = ({ messages, handleClick, handleDelete }) => {
   return (
-    <div className='containerMailUnread clearfix'>
+    <div className='containerMailUnread cf'>
       <h5 className='pa3 blue'>UNREAD EMAIL</h5>
-      <ul className='list clearfix'>
+      <ul className='list cf'>
         {getMessages(messages, handleClick, handleDelete)}
       </ul>
     </div>

@@ -7,7 +7,7 @@ const getMessages = (messages, handleClick, handleDelete) => {
   if (messages.length > 0) {
     return messages.map((message, i) => {
       return (
-        <li className='message clearfix' key={`message-read-${i}`}>
+        <li className='message cf' key={`message-read-${i}`}>
           <div className='cell containerBtn'>
             <button className='btn btn-primary pointer' onClick={() => handleClick(message.id)}>Mark Unread</button>
           </div>
@@ -32,7 +32,7 @@ export const MailRead = ({ messages, handleClick, handleDelete }) => {
   return (
     <div className='containerMailRead'>
       <h5 className='pa3 blue'>READ EMAIL</h5>
-      <ul className='list clearfix'>
+      <ul className='list cf'>
         {getMessages(messages, handleClick, handleDelete)}
       </ul>
     </div>
@@ -46,3 +46,4 @@ MailRead.propTypes = {
 }
 
 export default MailRead
+cf
