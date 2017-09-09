@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import './PageLayout.scss'
 
 export const PageLayout = ({ children }) => (
-  <div className='container text-center'>
-    <h2>React/Redux Email</h2>
+  <div className='container tc'>
+    <h3 className='pa3 bg-blue white'>React/Redux Email</h3>
     <div className='page-layout__viewport'>
       {children}
     </div>

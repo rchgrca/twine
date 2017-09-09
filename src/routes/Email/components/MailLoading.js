@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const MailLoading = () => {
-  return <h3 className='loading'>...Loading</h3>
+  return <h4 className='loading light-silver i'>...Loading</h4>
 }
 
 export default MailLoading
