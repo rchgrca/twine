@@ -38,7 +38,8 @@ describe('(Component) Email', () => {
         }],
       ...bindActionCreators({
         markRead    : (_spies.markRead = sinon.spy()),
-        markUnread  : (_spies.markUnread = sinon.spy())
+        markUnread  : (_spies.markUnread = sinon.spy()),
+        deleteMail  : (_spies.deleteMail = sinon.spy())
       }, _spies.dispatch = sinon.spy())
     }
     _wrapper = mount(<Email {..._props} />)
@@ -169,6 +170,39 @@ describe('(Component) Email', () => {
 
       expect(_wrapper.find('.containerMailRead').find('.message').text()).to.match(/There are no Read messages$/)
       expect(_wrapper.find('.containerMailUnread').find('.message')).to.have.length(2)
+    })
+  })
+
+  describe('Delete email', () => {
+    let _deleteUnread, _deleteRead
+
+    beforeEach(() => {
+      _deleteUnread = _wrapper.find('.delete').at(0)
+      _deleteRead = _wrapper.find('.delete').at(1)
+    })
+
+    it('exists', () => {
+      expect(_deleteUnread).to.exist()
+      expect(_deleteUnread.text()).to.match(/Delete$/)
+      expect(_deleteRead).to.exist()
+      expect(_deleteRead.text()).to.match(/Delete$/)
+    })
+
+    it('Calls props.deleteMail when clicked and updates the store', () => {
+      _spies.dispatch.should.have.not.been.called()
+
+      _deleteUnread.simulate('click')
+      _deleteRead.simulate('click')
+
+      _spies.dispatch.should.have.been.called()
+      _spies.deleteMail.should.have.been.called()
+
+      _wrapper.setProps({
+        messages : []
+      })
+
+      expect(_wrapper.find('.containerMailUnread').find('.message').text()).to.match(/There are no Unread messages$/)
+      expect(_wrapper.find('.containerMailRead').find('.message').text()).to.match(/There are no Read messages$/)
     })
   })
 })
