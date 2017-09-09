@@ -46,4 +46,3 @@ MailRead.propTypes = {
 }
 
 export default MailRead
-cf
