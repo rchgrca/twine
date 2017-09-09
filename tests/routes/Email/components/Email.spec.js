@@ -59,7 +59,7 @@ describe('(Component) Email', () => {
             'unread': true
           }]
       })
-      expect(_wrapper.find('img').find('.loading')).to.have.length(1)
+      expect(_wrapper.find('.loading')).to.have.length(1)
     })
   })
 

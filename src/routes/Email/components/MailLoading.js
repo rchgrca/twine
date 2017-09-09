@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const MailLoading = () => {
-  return <img className='loading' src='https://solo.vn/assets/images/cards/loader_blue.gif' />
+  return <h3 className='loading'>...Loading</h3>
 }
 
 export default MailLoading
