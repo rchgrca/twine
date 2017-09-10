@@ -35,7 +35,7 @@ export const MailUnread = ({ messages, handleClick, handleDelete }) => {
     <div className='containerMailUnread cf'>
       <h5 className='mb0 pa3 blue'>UNREAD EMAIL</h5>
       <div className='containerMessages pl1 pr1'>
-        <ul className='list pa0 bg-black-05 cf'>
+        <ul className='list pa0 cf'>
           {getMessages(messages, handleClick, handleDelete)}
         </ul>
       </div>

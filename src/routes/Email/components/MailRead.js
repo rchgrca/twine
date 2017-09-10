@@ -8,16 +8,18 @@ const getMessages = (messages, handleClick, handleDelete) => {
     return messages.map((message, i) => {
       return (
         <li className='message cf' key={`message-read-${i}`}>
-          <div className='cell containerBtn'>
-            <button className='btn btn-primary pointer' onClick={() => handleClick(message.id)}>Mark Unread</button>
-          </div>
           <div className='cell containerMessage'>
             <div className='subject b tl'>{message.subject}</div>
             <div className='tl'>{message.to.join(', ')}</div>
             <div className='containerBody  tl'>{setMultiLineTruncate(message.body, 220)}</div>
+            <div className='containerTimestamp tl'>
+              <div className='cell timestamp'>{message.date}</div>
+              <div className='cell delete' onClick={() => handleDelete(message.id)}>Delete</div>
+            </div>
           </div>
-          <div className='cell containerTimestamp'>{message.date}</div>
-          <div className='cell delete' onClick={() => handleDelete(message.id)}>Delete</div>
+          <div className='cell containerBtn'>
+            <button className='btn btn-primary pointer' onClick={() => handleClick(message.id)}>Mark Unread</button>
+          </div>
         </li>
       )
     })
@@ -30,10 +32,10 @@ const getMessages = (messages, handleClick, handleDelete) => {
 
 export const MailRead = ({ messages, handleClick, handleDelete }) => {
   return (
-    <div className='containerMailRead'>
+    <div className='containerMailRead cf'>
       <h5 className='mb0 pa3 pt0 blue'>READ EMAIL</h5>
       <div className='containerMessages pl1 pr1'>
-        <ul className='list pa0 bg-black-05 cf'>
+        <ul className='list pa0 cf'>
           {getMessages(messages, handleClick, handleDelete)}
         </ul>
       </div>
