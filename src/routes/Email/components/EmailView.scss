@@ -1,12 +1,5 @@
 .containerMailUnread {
   ul {
-    .message {
-      border: 1px solid lightgray;
-      padding: 1.5rem 0.8rem;
-      margin-bottom: 0.5rem;
-      background-color: white;
-      border-radius: 5px;
-    }
     .message:last-child {
       margin-bottom: 0;
     }
@@ -14,10 +7,6 @@
       margin-bottom: 1.5rem;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid lightgray;
-      .cell {
-      }
-      .date, .delete {
-      }
       .delete {
         color: blue;
         opacity: 0.5;
@@ -26,9 +15,9 @@
     }
     .containerBody {
       clear: both;
+      height: 6rem;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid lightgray;
-      height: 6rem;
     }
     .containerBtn {
       padding-top: 1.5rem;
@@ -39,21 +28,15 @@
 
 .containerMailRead {
   ul {
-    margin: 0;
     .message {
-      padding: 1.5rem .8rem;
-      border: 1px solid lightgray;
-      margin-bottom: 0.5rem;
-      background-color: white;
-      border-radius: 5px;
       .cell {
         button {
           background-color: orange;
-          border-color: orange;
+          margin-top: 1rem;
           color: white;
           white-space: normal;
           text-align: left;
-          margin-top: 1rem;
+          border-color: orange;
         }
       }
       .containerMessage {
@@ -69,10 +52,6 @@
         opacity: 0.5;
         cursor: pointer;
       }
-
-    }
-    .message:last-child {
-      border-bottom: 0;
     }
   }
 }

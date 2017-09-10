@@ -7,7 +7,7 @@ const getMessages = (messages, handleClick, handleDelete) => {
   if (messages.length > 0) {
     return messages.map((message, i) => {
       return (
-        <li className='message cf' key={`message-read-${i}`}>
+        <li className='message bg-white mb1 pv3 ph3 ba b--moon-gray br2 cf' key={`message-read-${i}`}>
           <div className='cell containerMessage'>
             <div className='subject b tl'>{message.subject}</div>
             <div className='tl'>{message.to.join(', ')}</div>
