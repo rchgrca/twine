@@ -8,7 +8,7 @@ const getMessages = (messages, handleClick, handleDelete) => {
     return messages.map((message, i) => {
       return (
         <li className='message bg-white mb1 pv3 ph3 ba b--moon-gray br2 cf' key={`message-unread-${i}`}>
-          <div className='containerSubject cf'>
+          <div className='containerSubject mb4 pb4 bb b--moon-gray cf'>
             <div className='cell'>
               <div className='subject b tl'>{message.subject}</div>
               <div className='tl'>{message.to.join(', ')}</div>
@@ -16,8 +16,8 @@ const getMessages = (messages, handleClick, handleDelete) => {
             <div className='cell date tl'>{message.date}</div>
             <div className='cell delete blue pointer tl' onClick={() => handleDelete(message.id)}>Delete</div>
           </div>
-          <div className='containerBody tl'>{setMultiLineTruncate(message.body, 115)}</div>
-          <div className='containerBtn'>
+          <div className='containerBody cb pb4 bb b--moon-gray tl'>{setMultiLineTruncate(message.body, 115)}</div>
+          <div className='containerBtn tc'>
             <button className='btn mt3 bg-blue white ba b--blue ws-normal pointer tl pointer' onClick={() => handleClick(message.id)}>Mark as Read</button>
           </div>
         </li>
