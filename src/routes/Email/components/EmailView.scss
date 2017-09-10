@@ -7,11 +7,6 @@
       margin-bottom: 1.5rem;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid lightgray;
-      .delete {
-        color: blue;
-        opacity: 0.5;
-        cursor: pointer;
-      }
     }
     .containerBody {
       clear: both;
@@ -22,36 +17,6 @@
     .containerBtn {
       padding-top: 1.5rem;
       text-align: center;
-    }
-  }
-}
-
-.containerMailRead {
-  ul {
-    .message {
-      .cell {
-        button {
-          background-color: orange;
-          margin-top: 1rem;
-          color: white;
-          white-space: normal;
-          text-align: left;
-          border-color: orange;
-        }
-      }
-      .containerMessage {
-        .containerBody {
-          margin-top: 1.5rem;
-        }
-      }
-      .containerTimestamp {
-        color: #ccc;
-      }
-      .delete {
-        color: blue;
-        opacity: 0.5;
-        cursor: pointer;
-      }
     }
   }
 }

@@ -14,11 +14,11 @@ const getMessages = (messages, handleClick, handleDelete) => {
               <div className='tl'>{message.to.join(', ')}</div>
             </div>
             <div className='cell date tl'>{message.date}</div>
-            <div className='cell delete tl' onClick={() => handleDelete(message.id)}>Delete</div>
+            <div className='cell delete blue pointer tl' onClick={() => handleDelete(message.id)}>Delete</div>
           </div>
           <div className='containerBody tl'>{setMultiLineTruncate(message.body, 115)}</div>
           <div className='containerBtn'>
-            <button className='btn btn-primary pointer' onClick={() => handleClick(message.id)}>Mark as Read</button>
+            <button className='btn mt3 bg-blue white ba b--blue ws-normal pointer tl pointer' onClick={() => handleClick(message.id)}>Mark as Read</button>
           </div>
         </li>
       )
