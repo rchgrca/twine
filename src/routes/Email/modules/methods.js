@@ -82,3 +82,7 @@ export const setMultiLineTruncate = (text, maxlength) => {
   const ellipsis = text.length > maxlength ? '...' : ''
   return `${text.substring(0, maxlength)}${ellipsis}`
 }
+
+export const getMarginLeftOdd = (i) => {
+  return i % 2 === 0 ? '' : 'ml4-l'
+}

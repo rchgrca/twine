@@ -1,7 +1,14 @@
-.containerMailUnread {
-  ul {
-    .message:last-child {
-      margin-right: 0;
+@media screen and (min-width: 60em) {
+  .containerMailUnread {
+    ul {
+      .message {
+        &.w-48-l {
+          width: 48.5%;
+        }
+      }
+      .message:last-child {
+        margin-right: 0;
+      }
     }
   }
 }

@@ -78,7 +78,7 @@ export function loadEmails () {
       }, 1)
     })
     .then(dispatch(getEmailData()))
-    .catch(() => { console.log("ERROR: LOADING Promise") })
+    .catch(() => { console.log('ERROR: LOADING Promise') })
   }
 }
 
