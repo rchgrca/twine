@@ -18,7 +18,7 @@ const getMessages = (messages, handleClick, handleDelete) => {
             </div>
           </div>
           <div className='cell containerBtn'>
-            <button className='btn mt3 bg-orange white ba b--orange ws-normal pointer tl' onClick={() => handleClick(message.id)}>Mark Unread</button>
+            <button className='br2 ph3 pv2 mt3 bg-orange white ba b--orange ws-normal pointer tl' onClick={() => handleClick(message.id)}>Mark Unread</button>
           </div>
         </li>
       )

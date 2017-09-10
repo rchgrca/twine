@@ -18,7 +18,7 @@ const getMessages = (messages, handleClick, handleDelete) => {
           </div>
           <div className='containerBody cb pb4 bb b--moon-gray tl'>{setMultiLineTruncate(message.body, 115)}</div>
           <div className='containerBtn tc'>
-            <button className='btn mt3 bg-blue white ba b--blue ws-normal pointer tl pointer' onClick={() => handleClick(message.id)}>Mark as Read</button>
+            <button className='br2 ph3 pv2 mt3 bg-blue white ba b--blue ws-normal pointer tl pointer' onClick={() => handleClick(message.id)}>Mark as Read</button>
           </div>
         </li>
       )
