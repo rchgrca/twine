@@ -21,7 +21,7 @@ const getMessages = (messages, markRead, markUnread, deleteMail) => {
 
 export const Email = ({ messages, markRead, markUnread, deleteMail }) => {
   return (
-    <div className='containerEmail bg-black-05 ba-ns b--light-gray'>
+    <div className='containerEmail ba-ns b--light-gray'>
       {isLoading(messages) ? <MailLoading /> : getMessages(messages, markRead, markUnread, deleteMail)}
     </div>
   )
