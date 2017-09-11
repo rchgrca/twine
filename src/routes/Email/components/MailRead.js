@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import MailEmpty from './MailEmpty'
 import { setMultiLineTruncate } from '../modules/methods'
-import { MailReadButton } from '../modules/classnamevars'
+import { MailReadButton } from '../classnames/MailRead'
 
 const getMessages = (messages, handleClick, handleDelete) => {
   if (messages.length > 0) {
