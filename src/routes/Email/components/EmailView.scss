@@ -3,12 +3,24 @@
     ul {
       .message {
         &.w-48-l {
-          width: 48.5%;
+          width: 48%;
         }
       }
       .message:last-child {
         margin-right: 0;
         margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 30em) {
+  .containerMailUnread {
+    ul {
+      .message {
+        &.w-100-xs {
+          width: 100%;
+        }
       }
     }
   }
