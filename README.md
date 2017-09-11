@@ -29,7 +29,7 @@ $ npm run test:watch
 $ npm run lint
 ```
 
-# Tasks Completed
+# Tasks Completed (Required)
 
 * Unread and Read emails are sorted by most recent
 * Click on "Mark as Read", sends async request, on success, it toggles the "unread" property to
@@ -43,6 +43,21 @@ are not cross-browser compatible
   * one email message has a date listed as null.  moment() returns "Invalid Date", detection is logged to
   the console.  The null is discarded and "Invalid Date" displays on the page
   * one email address is missing an "@".  Detection is logged to the console and the address is not displayed
+* Implemented unit tests
+
+# Tasks Completed (Extra)
+
+* Implemented Response Web Design compatibility
+  * tested on Chrome developer tools device simulator
+  * Galaxy S5, Nexus 5X, Nexus 6P, iPhone5, iPhone6, iPhone6 Plus, iPad, iPad Pro
+* Click on "Delete", sends async request, on success, it filters out the specific email id and returns the request
+* Implemented a "functional CSS" approach using "TachyonsCSS"
+  * creates easier to maintain CSS
+    * immutable:  only one CSS property: value pair per classname, insures low specifity with zero minimal side-effects
+    * composable: string classnames together in "className" attribute
+    * classnames are put into JavaScript strings kept in a separate file to avoid "polluting" the "className" attribute
+    * development/debugging is done in HTML tag attributes only only
+    * minimal developer written CSS
 
 # Initialize React
   * index.html, id="root"
