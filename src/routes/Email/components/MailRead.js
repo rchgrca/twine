@@ -5,7 +5,7 @@ import { setMultiLineTruncate } from '../modules/methods'
 import { MailReadContainer, MailReadH5, MailReadContainerMessages, MailReadUl,
          MailReadButton, MailReadMessageLi, MailReadContainerMessage, MailReadSubject,
          MailReadFrom, MailReadContainerBody, MailReadContainerDate, MailReadDate,
-         MailReadDelete } from '../classnames/MailRead'
+         MailReadDelete, MailReadContainerBtn } from '../classnames/MailRead'
 
 const getMessages = (messages, handleClick, handleDelete) => {
   if (messages.length > 0) {
@@ -21,7 +21,7 @@ const getMessages = (messages, handleClick, handleDelete) => {
               <div className={`delete ${MailReadDelete}`} onClick={() => handleDelete(message.id)}>Delete</div>
             </div>
           </div>
-          <div className='containerBtn'>
+          <div className={`containerBtn ${MailReadContainerBtn}`}>
             <button className={MailReadButton} onClick={() => handleClick(message.id)}>Mark Unread</button>
           </div>
         </li>
