@@ -46,7 +46,7 @@ are not cross-browser compatible
 
 # Tasks Completed (Extra)
 
-* Implemented Response Web Design compatibility
+* Implemented Responsive Web Design compatibility
   * tested on Chrome developer tools device simulator
   * Galaxy S5, Nexus 5X, Nexus 6P, iPhone5, iPhone6, iPhone6 Plus, iPad, iPad Pro
 * Click on "Delete", sends async request, on success, it filters out the specific email id and returns the request
@@ -65,19 +65,19 @@ are not cross-browser compatible
     * routes (get components that props will be sent to based on route, "/" in this case)
       * via function getComponent(), see React Dev Tool in App component
       * example: '/' route sends props to 'Email'
-      * example:  "/contacts" route would be set up to send props to <Contacts />
+      * example:  "/contacts" route would be set up to send props to 'Contacts' component (if created)
     * src/components/App
-      * wrapper <Provider /> enables redux store to use function connect() to map state to props
-      * <Router /> passes store and routes data (containing email data) to its child components
-        * /src/layouts/PageLayout/PageLayout.js:  <PageLayout /> sends props child components:  Email in this case
+      * wrapper 'Provider' enables redux store to use function connect() to map state to props
+      * 'Router' passes store and routes data (containing email data) to its child components
+        * /src/layouts/PageLayout/PageLayout.js:  'PageLayout' sends props child components:  Email in this case
 
 # Initialize Redux
   * store/createStore.js
     * creates Redux store, dispatch loadEmails() to populate store
-  * twine/Email/index.js
+  * routes/Email/index.js
     * adds the emailReducer to the store and maps to EmailContainer
     * emailReducer is a function that updates store and returns result props to components
-  * twine/index.js
+  * routes/index.js
     * injects store into indexRoute
     * when a user goes to '/', inject the store into component container
   * containers/EmailContainer.js
