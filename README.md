@@ -1,7 +1,6 @@
 # Twine Coding exercise
 
-* I used React stateless components with Redux to create an architecture that demonstrates a more
- modern approach to building modern web applications.  
+* Create a simple email application with React stateless components and Redux using an architecture that demonstrates a more modern approach to building complex web applications.  
 
 # Install
 ```
