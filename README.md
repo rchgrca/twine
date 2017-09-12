@@ -90,11 +90,12 @@ are not cross-browser compatible
   * components/Email.js
     * presentation component, receives props to Email components (initialState = [])
   * modules/email.js
-    * dispatch action LOAD_EMAILS_SUCCESS
-    * calls reducer which updates/populates store with API response
+    * dispatch action LOADING (to display "...Loading")
+    * dispatch action LOAD_EMAILS_SUCCESS on async request success
+    * calls reducer which updates store with API response
     * passes store data as props to presentation component components/Email.js
   * components/Email.js
-    * populates component props with new messages state, markRead, markUnread
+    * populates component props with new messages state, markRead, markUnread, delete
 
 # Mark Read
   * modules/email.js
@@ -102,7 +103,7 @@ are not cross-browser compatible
     * calls reducer which updates/populates store with API response
     * passes store data as props to presentation component
   * components/Emails.js
-    * updates components props with new messages state, markRead, markUnread
+    * updates components props with new messages state, markRead, markUnread, delete
 
 # Mark Unread
   * modules/email.js
@@ -110,7 +111,15 @@ are not cross-browser compatible
     * calls reducer which updates/populates store with API response
     * passes store data as props to presentation component
   * components/Emails.js
-    * updates components props with new messages state, markRead, markUnread
+    * updates components props with new messages state, markRead, markUnread, delete
+
+# Delete
+  * modules/email.js
+    * dispatched action DELETE_MAIL
+    * calls reducer which updates/populates store with API response
+    * passes store data as props to presentation component
+  * components/Emails.js
+    * updates components props with new messages state, markRead, markUnread, delete
 
 # Requirements
   * separate Unread and Read emails and sort them by most recent
