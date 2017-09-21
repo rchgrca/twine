@@ -1,4 +1,4 @@
-# React/Redux/Functional CSS Coding exercise
+# React/Redux/FunctionalCSS (prototype email application)
 
 * Create a simple email application with React stateless components and Redux using an architecture that demonstrates a more modern approach to building complex web applications.  
 
